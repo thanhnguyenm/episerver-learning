@@ -1,0 +1,23 @@
+﻿@using eShop.web;
+@model eShop.web.ViewModels.PageViewModel<eShop.web.Models.Pages.DemoFormPage>
+@{
+    ViewBag.Title = "Demo Form";
+}
+
+<h2>Form</h2>
+@using (Html.BeginForm("Save", "DemoFormPage", FormMethod.Post))
+{
+<div class="container-fluid">
+
+    @Html.AntiForgeryToken()
+    @Html.Hidden("currentPage", Model.CurrentPage)
+
+    <div role="main" id="main" class="main row">
+        <div class="col-md-12 p-0">
+            @Html.PropertyFor(x => x.CurrentPage.MainContentArea, new { CssClass = "row" })
+        </div>
+    </div>
+    <button type="submit">Submit</button>
+</div>
+}
+

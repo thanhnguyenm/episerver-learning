@@ -1,0 +1,18 @@
+﻿@model eShop.web.ViewModels.PageViewModel<eShop.web.Models.Pages.StartPage>
+
+@{
+    ViewBag.Title = Model.CurrentPage.MetaTitle;
+}
+
+
+@Html.Partial("_Categories")
+
+@Html.Partial("_Products")
+
+@Html.Partial("_Banner")
+
+@Html.Partial("_Trends")
+
+@Html.Partial("_Services")
+
+@Html.Partial("_Instagram")
