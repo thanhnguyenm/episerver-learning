@@ -1,16 +1,15 @@
-﻿@using eShop.web;
-@model eShop.web.ViewModels.PageViewModel<eShop.web.Models.Pages.DemoFormPage>
+﻿@model eShop.web.ViewModels.PageViewModel<eShop.web.Models.Pages.DemoFormPage>
 @{
-    ViewBag.Title = "Demo Form";
+    ViewBag.Title = Model.CurrentPage.MetaTitle;
 }
 
-<h2>Form</h2>
+<h2>@Model.CurrentPage.MetaTitle</h2>
 @using (Html.BeginForm("Save", "DemoFormPage", FormMethod.Post))
 {
 <div class="container-fluid">
 
     @Html.AntiForgeryToken()
-    @Html.Hidden("currentPage", Model.CurrentPage)
+    @Html.Hidden("currentPage", Model.CurrentPage.ContentLink)
 
     <div role="main" id="main" class="main row">
         <div class="col-md-12 p-0">

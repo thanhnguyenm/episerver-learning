@@ -1,5 +1,6 @@
 ﻿using EPiServer;
 using EPiServer.Core;
+using EPiServer.Web;
 using EPiServer.ServiceLocation;
 using EPiServer.Web.Mvc.Html;
 using EPiServer.Web.Routing;
@@ -17,6 +18,31 @@ namespace eShop.web.Helpers
 {
     public static class HtmlHelpers
     {
+        public static MvcHtmlString PageLink(this UrlHelper helper, PageData breadCrumbItem, PageData currentItem)
+        {
+            var buffer = new StringBuilder();
+            var endTag = string.Empty;
+            if (breadCrumbItem.HasTemplate() && !breadCrumbItem.ContentLink.CompareToIgnoreWorkID(currentItem.ContentLink))
+            {
+                buffer.Append($"<a href=\"{ helper.PageUrl(breadCrumbItem.LinkURL) }\">");
+                endTag = "</a>";
+            }
+            else
+            {
+                buffer.Append($"<span>");
+                endTag = "</span>";
+            }
+            
+            if (breadCrumbItem.ContentLink.CompareToIgnoreWorkID(SiteDefinition.Current.StartPage))
+            {
+                buffer.Append("<i class=\"fa fa-home\"></i>");
+            }
+            buffer.Append($" { breadCrumbItem.Name }{endTag}");
+
+
+            return new MvcHtmlString(buffer.ToString());
+        }
+
         /// <summary>
         /// Returns an element for each child page of the rootLink using the itemTemplate.
         /// </summary>

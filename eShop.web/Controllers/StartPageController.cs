@@ -13,8 +13,8 @@ using System.Web.Mvc;
 
 namespace eShop.web.Controllers
 {
-    [ContentOutputCache]
-    public class StartPageController : PageControllerBase<StartPage>
+    //[ContentOutputCache]
+    public class StartPageController : BasePageController<StartPage>
     {
         private readonly ITestService service;
         private readonly ITestService2 testService2;

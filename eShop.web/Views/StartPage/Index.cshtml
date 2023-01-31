@@ -2,10 +2,46 @@
 
 @{
     ViewBag.Title = Model.CurrentPage.MetaTitle;
+    bool isLoggedin = false;
 }
 
+<section class="categories">
+    <div class="container-fluid">
+        @Html.PropertyFor(x => x.CurrentPage.MainContentArea, new { CssClass = "row" })
+    </div>
+    @Html.PropertyFor(x => x.CurrentPage.ExampleString, new { CssClass = "row" })
+</section>
 
-@Html.Partial("_Categories")
+@*@Html.Partial("_Categories")*@
+
+<!-- Categories Section Begin -->
+<section class="categories">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 p-0">
+                @{
+                    Html.RenderPartial("_CategoryBannerBlock", Model.CurrentPage.MainCategoryBanner);
+                }
+            </div>
+            <div class="col-lg-6">
+                @Html.PropertyFor(x => x.CurrentPage.SmallCategoryBannerContentArea, new { CssClass = "row", ChildrenCssClass = "p-0" })
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Categories Section End -->
+
+<section class="categories">
+    <div class="container-fluid">
+        <div id="notificationBoard">
+
+        </div>
+    </div>
+</section>
+
+<script>
+
+</script>
 
 @Html.Partial("_Products")
 
@@ -16,3 +52,32 @@
 @Html.Partial("_Services")
 
 @Html.Partial("_Instagram")
+
+@section scripts {
+    <script src="~/Scripts/jquery.signalR-2.4.3.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script>
+        $(function () {
+            var notificationHub = $.connection.notificationHub;
+            var notificationBoard = $('#notificationBoard');
+            notificationHub.client.updateNotifications = function (notifications) {
+                $('#notificationBoard').empty();
+                $.each(notifications, function () {
+                    var notification = this;
+                    notificationBoard.append('<li>' + notification.Date + ': <strong>' + notification.Message + '</strong>(Message Read = ' + notification.Read + ')</li > ');
+                });
+            };
+
+            $.connection.hub.start().done(function () {
+                notificationHub.server.getNotifications().done(function (notifications) {
+                    $('#notificationBoard').empty();
+                    $.each(notifications, function () {
+                        var notification = this;
+                        notificationBoard.append('<li>' + notification.Date + ': <strong>' + notification.Message + '</strong>(Message Read = ' + notification.Read + ')</li > ');
+                    });
+                });
+            });
+        })
+    </script>
+
+}

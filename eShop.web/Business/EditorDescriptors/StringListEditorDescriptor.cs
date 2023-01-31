@@ -10,7 +10,7 @@ namespace eShop.web.Business.EditorDescriptors
     /// <summary>
     /// Register an editor for StringList properties
     /// </summary>
-    [EditorDescriptorRegistration(TargetType = typeof(String[]), UIHint = Global.SiteUIHints.Strings)]
+    [EditorDescriptorRegistration(TargetType = typeof(String[]), UIHint = "StringList")]
     public class StringListEditorDescriptor : EditorDescriptor
     {
         public override void ModifyMetadata(ExtendedMetadata metadata, IEnumerable<Attribute> attributes)

@@ -17,7 +17,7 @@ namespace eShop.web.Controllers
     /// argument. That may however have side effects.
     /// </remarks>
     [TemplateDescriptor(Inherited = true)]
-    public class DefaultPageController : PageControllerBase<SitePageData>
+    public class DefaultPageController : BasePageController<SitePageData>
     {
         public ViewResult Index(SitePageData currentPage)
         {

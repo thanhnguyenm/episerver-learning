@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>eShop.web</RootNamespace>
     <AssemblyName>eShop.web</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>true</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <FileUpgradeFlags>
@@ -30,6 +30,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,8 +50,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=3.0.30930.28736, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.13.33.0\lib\net461\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="AuthorizeNet, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AuthorizeNet.1.9.4\lib\AuthorizeNet.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\packages\Castle.Core.4.2.1\lib\net45\Castle.Core.dll</HintPath>
@@ -70,14 +77,38 @@
     <Reference Include="EPiServer.ApplicationModules, Version=11.20.14.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.Framework.11.20.14\lib\net461\EPiServer.ApplicationModules.dll</HintPath>
     </Reference>
+    <Reference Include="EPiServer.Business.Commerce, Version=13.33.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.13.33.0\lib\net461\EPiServer.Business.Commerce.dll</HintPath>
+    </Reference>
     <Reference Include="EPiServer.Cms.AspNet, Version=11.20.14.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.CMS.AspNet.11.20.14\lib\net461\EPiServer.Cms.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="EPiServer.Cms.HealthCheck, Version=1.3.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Cms.HealthCheck.1.3.0\lib\net462\EPiServer.Cms.HealthCheck.dll</HintPath>
     </Reference>
     <Reference Include="EPiServer.Cms.Shell.UI, Version=11.36.7.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.CMS.UI.Core.11.36.7\lib\net461\EPiServer.Cms.Shell.UI.dll</HintPath>
     </Reference>
     <Reference Include="EPiServer.Cms.TinyMce, Version=2.10.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.CMS.TinyMce.2.10.1\lib\net461\EPiServer.Cms.TinyMce.dll</HintPath>
+    </Reference>
+    <Reference Include="EPiServer.Commerce.Internal.Migration, Version=13.33.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.13.33.0\lib\net461\EPiServer.Commerce.Internal.Migration.dll</HintPath>
+    </Reference>
+    <Reference Include="EPiServer.Commerce.Reporting, Version=13.33.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.13.33.0\lib\net461\EPiServer.Commerce.Reporting.dll</HintPath>
+    </Reference>
+    <Reference Include="EPiServer.Commerce.Shell, Version=13.33.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.UI.13.33.0\lib\net461\EPiServer.Commerce.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="EPiServer.Commerce.Shell.ManagerIntegration, Version=13.33.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.UI.ManagerIntegration.13.33.0\lib\net461\EPiServer.Commerce.Shell.ManagerIntegration.dll</HintPath>
+    </Reference>
+    <Reference Include="EPiServer.Commerce.UI, Version=13.33.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.UI.13.33.0\lib\net461\EPiServer.Commerce.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="EPiServer.Commerce.UI.CustomerService, Version=13.33.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.UI.CustomerService.13.33.0\lib\net461\EPiServer.Commerce.UI.CustomerService.dll</HintPath>
     </Reference>
     <Reference Include="EPiServer.Configuration, Version=11.20.14.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.CMS.AspNet.11.20.14\lib\net461\EPiServer.Configuration.dll</HintPath>
@@ -112,6 +143,9 @@
     <Reference Include="EPiServer.Logging.Log4Net, Version=2.2.2.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.Logging.Log4Net.2.2.2\lib\net461\EPiServer.Logging.Log4Net.dll</HintPath>
     </Reference>
+    <Reference Include="EPiServer.Search.IndexingService, Version=9.0.3.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Search.9.0.3\lib\net461\EPiServer.Search.IndexingService.dll</HintPath>
+    </Reference>
     <Reference Include="EPiServer.ServiceLocation.StructureMap, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.ServiceLocation.StructureMap.2.0.3\lib\net461\EPiServer.ServiceLocation.StructureMap.dll</HintPath>
     </Reference>
@@ -121,27 +155,135 @@
     <Reference Include="EPiServer.Shell.UI, Version=11.36.7.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.CMS.UI.Core.11.36.7\lib\net461\EPiServer.Shell.UI.dll</HintPath>
     </Reference>
+    <Reference Include="EPiServer.Telemetry.UI, Version=1.2.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Telemetry.UI.Core.1.2.0\lib\net45\EPiServer.Telemetry.UI.dll</HintPath>
+    </Reference>
     <Reference Include="EPiServer.UI, Version=11.36.7.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.CMS.UI.Core.11.36.7\lib\net461\EPiServer.UI.dll</HintPath>
     </Reference>
     <Reference Include="EPiServer.Web.WebControls, Version=11.20.14.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.CMS.AspNet.11.20.14\lib\net461\EPiServer.Web.WebControls.dll</HintPath>
     </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=2.0.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.15\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lucene.Net.3.0.3\lib\NET40\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Mediachase.BusinessFoundation, Version=13.33.0.0, Culture=neutral, PublicKeyToken=41d2e7a615ba286c, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.13.33.0\lib\net461\Mediachase.BusinessFoundation.dll</HintPath>
+    </Reference>
+    <Reference Include="Mediachase.BusinessFoundation.Data, Version=13.33.0.0, Culture=neutral, PublicKeyToken=41d2e7a615ba286c, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.13.33.0\lib\net461\Mediachase.BusinessFoundation.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Mediachase.Commerce, Version=13.33.0.0, Culture=neutral, PublicKeyToken=6e58b501b34abce3, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.13.33.0\lib\net461\Mediachase.Commerce.dll</HintPath>
+    </Reference>
+    <Reference Include="Mediachase.Commerce.Plugins.Payment, Version=13.33.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.13.33.0\lib\net461\Mediachase.Commerce.Plugins.Payment.dll</HintPath>
+    </Reference>
+    <Reference Include="Mediachase.Commerce.Plugins.Shipping, Version=13.33.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.13.33.0\lib\net461\Mediachase.Commerce.Plugins.Shipping.dll</HintPath>
+    </Reference>
+    <Reference Include="Mediachase.Commerce.Website, Version=13.33.0.0, Culture=neutral, PublicKeyToken=6e58b501b34abce3, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.13.33.0\lib\net461\Mediachase.Commerce.Website.dll</HintPath>
+    </Reference>
+    <Reference Include="Mediachase.Commerce.Workflow, Version=13.33.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.13.33.0\lib\net461\Mediachase.Commerce.Workflow.dll</HintPath>
+    </Reference>
+    <Reference Include="Mediachase.DataProvider, Version=13.33.0.0, Culture=neutral, PublicKeyToken=41d2e7a615ba286c, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.13.33.0\lib\net461\Mediachase.DataProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="Mediachase.FileUploader, Version=13.33.0.0, Culture=neutral, PublicKeyToken=41d2e7a615ba286c, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.13.33.0\lib\net461\Mediachase.FileUploader.dll</HintPath>
+    </Reference>
+    <Reference Include="Mediachase.MetaDataPlus, Version=13.33.0.0, Culture=neutral, PublicKeyToken=41d2e7a615ba286c, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.13.33.0\lib\net461\Mediachase.MetaDataPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Mediachase.Search, Version=13.33.0.0, Culture=neutral, PublicKeyToken=6e58b501b34abce3, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.13.33.0\lib\net461\Mediachase.Search.dll</HintPath>
+    </Reference>
+    <Reference Include="Mediachase.Search.Extensions, Version=13.33.0.0, Culture=neutral, PublicKeyToken=6e58b501b34abce3, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.13.33.0\lib\net461\Mediachase.Search.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Mediachase.Search.LuceneSearchProvider, Version=13.33.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.13.33.0\lib\net461\Mediachase.Search.LuceneSearchProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="Mediachase.SqlDataProvider, Version=13.33.0.0, Culture=neutral, PublicKeyToken=41d2e7a615ba286c, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.13.33.0\lib\net461\Mediachase.SqlDataProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="Mediachase.WebConsoleLib, Version=13.33.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Commerce.Core.13.33.0\lib\net461\Mediachase.WebConsoleLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.4.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.4.3\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.4.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.4.3\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Diagnostics.HealthChecks, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Diagnostics.HealthChecks.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Diagnostics.HealthChecks.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Hosting.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Hosting.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Hosting.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=6.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.1\lib\net461\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.2.2\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.2.2\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.2.2\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.WebForms.10.0.40219.1\lib\Microsoft.ReportViewer.WebForms.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
     <Reference Include="Pipelines.Sockets.Unofficial, Version=1.0.0.0, Culture=neutral, PublicKeyToken=42ea0a778e13fbe2, processorArchitecture=MSIL">
       <HintPath>..\packages\Pipelines.Sockets.Unofficial.2.2.2\lib\net472\Pipelines.Sockets.Unofficial.dll</HintPath>
@@ -179,6 +321,7 @@
     <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ComponentModel.Annotations.4.7.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
     </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Data.SqlClient, Version=4.6.1.5, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SqlClient.4.8.5\lib\net461\System.Data.SqlClient.dll</HintPath>
@@ -195,6 +338,10 @@
       <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
     </Reference>
     <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
@@ -215,6 +362,10 @@
     </Reference>
     <Reference Include="System.Security.Principal.Windows, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Security.Principal.Windows.4.7.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Syndication, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.Syndication.7.0.0\lib\net462\System.ServiceModel.Syndication.dll</HintPath>
     </Reference>
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Threading.AccessControl, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -239,12 +390,16 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
@@ -268,13 +423,13 @@
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
     </Reference>
@@ -288,27 +443,57 @@
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ItemGroup>
+    <Compile Include="Business\AdminUI\CustomCmsGlobalMenuProvider.cs" />
+    <Compile Include="Business\AdminUI\CustomQuickNavigator.cs" />
+    <Compile Include="Business\AdminUI\CustomAdminGlobalMenuProvider.cs" />
+    <Compile Include="Business\Components\Comments\Comment.cs" />
+    <Compile Include="Business\Components\Comments\CommentsPaneDescriptor.cs" />
+    <Compile Include="Business\Components\Comments\CommentsPaneNavigationComponent.cs" />
+    <Compile Include="Business\Components\CustomPage\CustomPanelWidget.cs" />
+    <Compile Include="Business\Components\UserManual\UserManualWidget.cs" />
+    <Compile Include="Business\Components\VideoAsset\VideoAssetComponent.cs" />
+    <Compile Include="Business\Components\VideoAsset\VideoAssetDescriptor.cs" />
+    <Compile Include="Business\Filters\DisableInvalidDisplayOptionsAttribute.cs" />
+    <Compile Include="Business\Filters\ExportModelStateToTempDataFilter.cs" />
+    <Compile Include="Business\Filters\ImportModelStateFromTempDataFilter.cs" />
+    <Compile Include="Business\Filters\MaxItemsAllowedAtribute.cs" />
+    <Compile Include="Business\Filters\ModelStateTempDataTransferFilter.cs" />
+    <Compile Include="Business\CacheBusting\CdnMediaHandler.cs" />
     <Compile Include="Business\Dependencies\RedisCacheRegistation.cs" />
     <Compile Include="Business\Filters\BrowserCachingActionFilter.cs" />
     <Compile Include="Business\Filters\PageContextActionFilter.cs" />
+    <Compile Include="Business\Hubs\MyHub1.cs" />
+    <Compile Include="Business\Hubs\NotificationHub.cs" />
     <Compile Include="Business\Initialization\BundleConfig.cs" />
+    <Compile Include="Business\Initialization\CdnModuleInitialization.cs" />
+    <Compile Include="Business\Initialization\ChangingLoginImagesModule.cs" />
+    <Compile Include="Business\Initialization\ContainerPageUIDescriptorModule.cs" />
     <Compile Include="Business\Initialization\DependencyResolverInitialization.cs" />
     <Compile Include="Business\Dependencies\ServiceLocatorDependencyResolver.cs" />
     <Compile Include="Business\Dependencies\ServiceRegistration.cs" />
     <Compile Include="Business\Dependencies\StructureMapDependencyResolver.cs" />
     <Compile Include="Business\EditorDescriptors\StringListEditorDescriptor.cs" />
     <Compile Include="Business\Initialization\CustomizedRenderingInitialization.cs" />
-    <Compile Include="Business\Initialization\DisplayRegistryInitialization.cs" />
+    <Compile Include="Business\Initialization\DisplayOptionsInitialization.cs" />
+    <Compile Include="Business\Initialization\EventsInitialization.cs" />
     <Compile Include="Business\Initialization\FilterConfig.cs" />
+    <Compile Include="Business\Rendering\ContainerPageUIDescriptor.cs" />
+    <Compile Include="Business\Rendering\ContentPageMetaDataPlugin.cs" />
     <Compile Include="Business\Rendering\CustomContentAreaRenderer.cs" />
     <Compile Include="Business\Rendering\ErrorHandlingContentRenderer.cs" />
     <Compile Include="Business\Rendering\ICustomCssInContentArea.cs" />
+    <Compile Include="Business\Rendering\IDefaultDisplayOption.cs" />
+    <Compile Include="Business\Rendering\IDisallowDisplayOption.cs" />
     <Compile Include="Business\Rendering\IModifyLayout.cs" />
     <Compile Include="Business\Rendering\ManuallyBlockRenderingAttribute.cs" />
     <Compile Include="Business\Rendering\SiteViewEngine.cs" />
     <Compile Include="Business\Rendering\TemplateCoordinator.cs" />
+    <Compile Include="Business\ScheduleTasks\NotificationScheduledTask.cs" />
+    <Compile Include="Business\Search\InternalPageSearchProvider.cs" />
+    <Compile Include="Business\Services\FeedService.cs" />
     <Compile Include="Business\Services\ICacheManager.cs" />
     <Compile Include="Business\Services\IExamplePluginService.cs" />
+    <Compile Include="Business\Services\IFeedService.cs" />
     <Compile Include="Business\Services\IPageViewContextFactory.cs" />
     <Compile Include="Business\Services\ITestService.cs" />
     <Compile Include="Business\Services\ITestService2.cs" />
@@ -317,15 +502,27 @@
     <Compile Include="Business\Services\RedisCacheManager.cs" />
     <Compile Include="Business\Services\TestService.cs" />
     <Compile Include="Business\Services\TestService2.cs" />
-    <Compile Include="Controllers\BlockPartialController.cs" />
+    <Compile Include="Business\Validators\CategoryBannerTypeVaidator.cs" />
+    <Compile Include="Business\Validators\StartPageValidator.cs" />
+    <Compile Include="Controllers\BaseBlockController.cs" />
+    <Compile Include="Controllers\BaseFormBlockController.cs" />
+    <Compile Include="Controllers\BasePartialController.cs" />
+    <Compile Include="Controllers\CategoryBannerBlockController.cs" />
     <Compile Include="Controllers\ColourBlockController.cs" />
+    <Compile Include="Controllers\CustomAdminGlobalMainPageController.cs" />
+    <Compile Include="Controllers\CustomCmsGlobalHangfireController.cs" />
+    <Compile Include="Controllers\CustomWidgetPageController.cs" />
+    <Compile Include="Controllers\DebuggingInformationController.cs" />
     <Compile Include="Controllers\DefaultPageController.cs" />
     <Compile Include="Controllers\DemoFormPageController.cs" />
-    <Compile Include="Controllers\PageControllerBase.cs" />
+    <Compile Include="Controllers\LoginControlBlockController.cs" />
+    <Compile Include="Controllers\BasePageController.cs" />
     <Compile Include="Controllers\PreviewController.cs" />
+    <Compile Include="Controllers\RssFeedController.cs" />
     <Compile Include="Controllers\ShippingAddressBlockController.cs" />
     <Compile Include="Controllers\StartPageController.cs" />
     <Compile Include="Controllers\StartPagePartialController.cs" />
+    <Compile Include="Controllers\UploadFilePageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -333,10 +530,15 @@
     <Compile Include="Helpers\CategorizableExtensions.cs" />
     <Compile Include="Helpers\ContentExtensions.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
+    <Compile Include="Helpers\NotificationCentre.cs" />
+    <Compile Include="Helpers\StringExtensions.cs" />
     <Compile Include="Helpers\UrlHelpers.cs" />
+    <Compile Include="Infrastructure\EPiServerCommerceInitializationModule.cs" />
+    <Compile Include="Models\Blocks\CategoryBannerBlock.cs" />
     <Compile Include="Models\Blocks\ColourBlock.cs" />
     <Compile Include="Models\Blocks\HiddenBlock.cs" />
     <Compile Include="Models\Blocks\HotTrendBlock.cs" />
+    <Compile Include="Models\Blocks\LoginControlBlock.cs" />
     <Compile Include="Models\Blocks\ShippingAddress.cs" />
     <Compile Include="Models\Blocks\ShippingAddressBlock.cs" />
     <Compile Include="Models\Blocks\SiteBlockData.cs" />
@@ -345,15 +547,19 @@
     <Compile Include="Models\Media\ImageFile.cs" />
     <Compile Include="Models\Media\VideoFile.cs" />
     <Compile Include="Models\Pages\ContainerPage.cs" />
+    <Compile Include="Models\Pages\CustomWidgetPage.cs" />
     <Compile Include="Models\Pages\DemoFormPage.cs" />
     <Compile Include="Models\Pages\IContainerPage.cs" />
     <Compile Include="Models\Pages\SitePageData.cs" />
     <Compile Include="Models\Pages\StandardPage.cs" />
     <Compile Include="Models\Pages\StartPage.cs" />
+    <Compile Include="Business\EditorDescriptors\ExampleStringProperty.cs" />
+    <Compile Include="Models\Pages\UploadFilePage.cs" />
     <Compile Include="Models\Properties\PropertyStringList.cs" />
     <Compile Include="Models\SiteContentType.cs" />
     <Compile Include="Models\SiteImageUrl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
     <Compile Include="Templates\Plugins\ExamplePlugin.aspx.cs">
       <DependentUpon>ExamplePlugin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -381,21 +587,65 @@
     <Compile Include="ViewModels\IBlockViewModel.cs" />
     <Compile Include="ViewModels\IPageViewModel.cs" />
     <Compile Include="ViewModels\LayoutViewModel.cs" />
+    <Compile Include="ViewModels\LoginControlBlockViewModel.cs" />
+    <Compile Include="ViewModels\LoginModel.cs" />
     <Compile Include="ViewModels\MenuItemModel.cs" />
+    <Compile Include="ViewModels\Notification.cs" />
     <Compile Include="ViewModels\PageViewModel.cs" />
     <Compile Include="ViewModels\PreviewModel.cs" />
+    <Compile Include="ViewModels\RssActionResult.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Views\BaseBlock\" />
+    <Folder Include="Views\BaseFormBlock\" />
+    <Folder Include="Views\CustomAdminMainPage\" />
+    <Folder Include="Views\RssFeed\" />
     <Folder Include="Views\StartPagePartial\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ClientResources\Images\icons\layoutIcons24x24.png" />
+    <Content Include="ClientResources\Scripts\Components\CommentComponent.js" />
+    <Content Include="ClientResources\Scripts\Components\CommentViewModel.js" />
+    <Content Include="ClientResources\Scripts\Components\CustomPanelWidget.js" />
+    <Content Include="ClientResources\Scripts\Components\NewCommentCommand.js" />
+    <Content Include="ClientResources\Scripts\Components\NewVideoCommand.js" />
+    <Content Include="ClientResources\Scripts\Components\UserManualWidget.js" />
+    <Content Include="ClientResources\Scripts\Components\VideoAsset.js" />
+    <Content Include="ClientResources\Scripts\Components\VideoAssetViewModel.js" />
+    <Content Include="ClientResources\Scripts\Editors\ExampleString.js" />
     <Content Include="ClientResources\Scripts\Editors\StringList.js" />
+    <Content Include="ClientResources\Scripts\Editors\Templates\ExampleString.html" />
     <Content Include="ClientResources\Styles\LayoutIcons.css" />
     <Content Include="ClientResources\Styles\Styles.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="IndexingService\IndexingService.svc" />
     <Content Include="Readme.txt" />
     <Content Include="Resources\LanguageFiles\Display.xml" />
     <Content Include="Resources\LanguageFiles\EditorHints.xml" />
+    <Content Include="modules\_protected\EPiServer.Commerce.Shell\EPiServer.Commerce.Shell.zip" />
+    <Content Include="modules\_protected\Commerce\Commerce.zip" />
+    <Content Include="modules\_protected\EPiServer.Commerce.UI.CustomerService\EPiServer.Commerce.UI.CustomerService.zip" />
+    <Content Include="Configs\baf.config" />
+    <Content Include="Configs\baf.data.manager.config" />
+    <Content Include="Configs\baf.data.metaobject.config" />
+    <Content Include="Configs\ecf.app.config" />
+    <Content Include="Configs\ecf.catalog.config" />
+    <Content Include="Configs\ecf.customer.config" />
+    <Content Include="Configs\ecf.customization.config" />
+    <Content Include="Configs\ecf.marketing.config" />
+    <Content Include="Configs\ecf.order.config" />
+    <Content Include="Configs\ecf.security.config" />
+    <Content Include="Configs\ecf.ssl.config" />
+    <Content Include="Configs\Mediachase.Search.config" />
+    <Content Include="ConnectionStrings.config" />
+    <Content Include="ConnectionStrings.Default.config" />
+    <Content Include="License.config" />
+    <Content Include="modules\_protected\EPiServer.Commerce.Shell.ManagerIntegration\EPiServer.Commerce.Shell.ManagerIntegration.zip" />
+    <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.6.4.js" />
+    <Content Include="Scripts\jquery-1.6.4.min.js" />
+    <Content Include="Scripts\jquery.signalR-2.4.3.js" />
+    <Content Include="Scripts\jquery.signalR-2.4.3.min.js" />
     <Content Include="Static\css\bootstrap.min.css" />
     <Content Include="Static\css\elegant-icons.css" />
     <Content Include="Static\css\font-awesome.min.css" />
@@ -408,6 +658,7 @@
     <Content Include="Static\fonts\fontawesome-webfont.svg" />
     <Content Include="Static\gfx\block-type-icon.png" />
     <Content Include="Static\gfx\page-type-icon.png" />
+    <Content Include="Static\html\UserGuide\ContentEditorsUserManual.html" />
     <Content Include="Static\icons\cms\drilling.png" />
     <Content Include="Static\icons\cms\tablet.png" />
     <Content Include="Static\img\banner\banner-1.jpg" />
@@ -558,12 +809,24 @@
     <Content Include="Views\Preview\Index.cshtml" />
     <Content Include="Views\ColourBlock\Index.cshtml" />
     <Content Include="Views\Shared\TemplateHint.cshtml" />
+    <Content Include="Views\Shared\_Breadcrumbs.cshtml" />
+    <Content Include="Views\LoginControlBlock\Index.cshtml" />
+    <Content Include="Views\CategoryBannerBlock\Index.cshtml" />
+    <Content Include="Views\Shared\Blocks\_CategoryBannerBlock.cshtml" />
+    <Content Include="Views\Shared\Widgets\_CustomWidgetPage.cshtml" />
+    <Content Include="Views\CustomWidgetPage\Index.cshtml" />
+    <Content Include="Views\DebuggingInformation\Index.cshtml" />
+    <Content Include="Views\Shared\_CustomAdminLayout.cshtml" />
+    <Content Include="Views\CustomAdminGlobalMainPage\Index.cshtml" />
+    <Content Include="Views\CustomCmsGlobalHangfire\Index.cshtml" />
+    <Content Include="Views\UploadFilePage\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="__ConnectionStrings.LAMDUCCOMPUTER.config" />
   </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
@@ -593,11 +856,28 @@
   </Target>
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <Import Project="..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.1\build\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.1\build\Microsoft.Extensions.Logging.Abstractions.targets')" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
+  <!-- to modify your build process, add your task inside one of the targets below and uncomment it. 
+       other similar extension points exist, see microsoft.common.targets.
+  <target name="beforebuild">
+  </target>-->
   <Target Name="AfterBuild">
+    <!-- <Copy  -->
+    <!-- SourceFiles="ConnectionStrings.config"  -->
+    <!-- DestinationFiles="obj\$(Configuration)\Temp.ConnectionStrings.config" /> -->
+    <!-- <TransformXml  -->
+    <!-- Source="obj\$(Configuration)\Temp.ConnectionStrings.config"  -->
+    <!-- Transform="ConnectionStrings.$(USERNAME).config"  -->
+    <!-- Destination="obj\$(Configuration)\Transformed.Instant.Settings.local.config"  -->
+    <!-- Condition="Exists('ConnectionStrings.$(USERNAME).config')" /> -->
+    <!-- <ReadLinesFromFile File="obj\$(Configuration)\Transformed.Instant.Settings.local.config"> -->
+    <!-- <Output TaskParameter="Lines" ItemName="TransformedWebConnectionStrings" /> -->
+    <!-- </ReadLinesFromFile> -->
+    <!-- <ReadLinesFromFile File="ConnectionStrings.Default.config"> -->
+    <!-- <Output TaskParameter="Lines" ItemName="UnTransformedConnectionStrings" /> -->
+    <!-- </ReadLinesFromFile> -->
+    <!-- <Copy Condition=" @(UnTransformedConnectionStrings) != @(TransformedWebConnectionStrings) " -->
+    <!-- SourceFiles="obj\$(Configuration)\Transformed.Instant.Settings.local.config" -->
+    <!-- DestinationFiles="ConnectionStrings.config" -->
+    <!-- OverwriteReadOnlyFiles="True" /> -->
   </Target>
-  -->
 </Project>

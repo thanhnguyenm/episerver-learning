@@ -31,7 +31,7 @@ namespace eShop.web.Business.Services
 
             // Use the content link with version information when editing the startpage,
             // otherwise the published version will be used when rendering the props below.
-            if (currentContentLink.CompareToIgnoreWorkID(startPageContentLink))
+            if (currentContentLink != null && currentContentLink.CompareToIgnoreWorkID(startPageContentLink))
             {
                 startPageContentLink = currentContentLink;
             }

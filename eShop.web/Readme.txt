@@ -185,3 +185,18 @@ Configuration Over Duplication When Designing Your Episerver Website
 -One Component Per UI Design
 Or
 -A Configurable Block
+
+
+https://www.david-tec.com/2014/08/EPiServer-Dojo-Useful-links/
+
+https://world.optimizely.com/blogs/K-Khan-/Dates/2015/4/add-value-with-widgets/
+
+https://world.optimizely.com/documentation/developer-guides/archive/cms/deployment/Deploying-to-Azure-webapps/
+
+https://docs.developers.optimizely.com/commerce/v14.0.0-commerce-cloud/docs/deploying-commerce-to-azure-web-apps
+
+https://josef.codes/how-to-create-a-custom-episerver-7-property-with-dojo/
+
+https://robertlinde.se/posts/custom-episerver-properties-with-dojo/
+
+https://design.optimizely.com/legacy/episerver-front-end-style-guide/

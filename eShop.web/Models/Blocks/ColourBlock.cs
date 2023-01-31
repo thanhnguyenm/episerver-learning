@@ -1,5 +1,6 @@
 ﻿using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
+using EPiServer.Shell.ObjectEditing;
 using System.ComponentModel.DataAnnotations;
 
 namespace eShop.web.Models.Blocks
@@ -26,6 +27,8 @@ namespace eShop.web.Models.Blocks
             Description = "Colour",
             GroupName = SystemTabNames.Content,
             Order = 2)]
+        [ClientEditor(ClientEditingClass = "dijit/ColorPalette")]
+        //[ClientEditor(ClientEditingClass = "dijit/ColorPalette", EditorConfiguration = "{\"palette\": \"3x4\"}")]
         public virtual string Colour { get; set; }
 
     }

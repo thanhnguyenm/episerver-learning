@@ -19,6 +19,9 @@ namespace eShop.web
         {
             base.RegisterRoutes(routes);
 
+            RouteTable.Routes.MapRoute("DebuggingInformation", "DebuggingInformation", new { controller = "DebuggingInformation", action = "Index" });
+            RouteTable.Routes.MapRoute("CustomAdminGlobalMainPage", "CustomAdminGlobalMainPage", new { controller = "CustomAdminGlobalMainPage", action = "Index" });
+            RouteTable.Routes.MapRoute("CustomCmsGlobalHangfire", "CustomCmsGlobalHangfire", new { controller = "CustomCmsGlobalHangfire", action = "Index" });
             RouteTable.Routes.MapRoute("defaultRoute", "{controller}/{action}");
         }
 

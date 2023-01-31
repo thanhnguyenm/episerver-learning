@@ -34,11 +34,11 @@ define([
         _ValueRequiredMixin
     ) {
 
-        return declare("nitecoui.editors.StringList", [_Widget, _TemplatedMixin, _WidgetsInTemplateMixin, _CssStateMixin, _ValueRequiredMixin], {
+        return declare("nitecoui/editors/StringList", [_Widget, _TemplatedMixin, _WidgetsInTemplateMixin, _CssStateMixin, _ValueRequiredMixin], {
 
             templateString: "<div class=\"dijitInline\" tabindex=\"-1\" role=\"presentation\">\
                             <div data-dojo-attach-point=\"stateNode, tooltipNode\">\
-                                <div data-dojo-attach-point=\"textArea\" data-dojo-type=\"dijit.form.Textarea\"></div>\
+                                <div data-dojo-attach-point=\"textArea\" data-dojo-type=\"dijit/form/Textarea\"></div>\
                             </div>\
                             <br />\
                             <span>${helptext}</span>\
@@ -63,7 +63,7 @@ define([
                 this.inherited(arguments);
 
                 // Init textarea and bind event
-                this.textArea.set("intermediateChanges", this.intermediateChanges);
+                this.textArea.set("intermediateChanges", this._setIntermediateChangesAttr);
                 this.connect(this.textArea, "onChange", this._onTextAreaChanged);
             },
 

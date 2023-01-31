@@ -12,7 +12,7 @@ namespace eShop.web.Models.Properties
     /// Property type for storing a list of strings
     /// </summary>
     /// <remarks>For an example, see <see cref="AlloyTemplates.Models.Pages.SitePageData"/> where this property type is used for the MetaKeywords property</remarks>
-    [EditorHint(Global.SiteUIHints.Strings)]
+    [EditorHint("StringList")]
     [PropertyDefinitionTypePlugIn(Description = "A property for list of strings", DisplayName = "String List")]
     public class PropertyStringList : PropertyLongString
     {

@@ -1,4 +1,5 @@
 ﻿using EPiServer;
+using EPiServer.Core;
 using EPiServer.Web.Mvc;
 using eShop.web.Models.Blocks;
 using eShop.web.Models.Pages;
@@ -8,8 +9,8 @@ using System.Web.Mvc;
 
 namespace eShop.web.Controllers
 {
-    [ContentOutputCache]
-    public class DemoFormPageController : PageControllerBase<DemoFormPage>
+    //[ContentOutputCache]
+    public class DemoFormPageController : BasePageController<DemoFormPage>
     {
         private readonly IContentLoader contentLoader;
 
@@ -28,14 +29,14 @@ namespace eShop.web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(ShippingAddress address)
+        public ActionResult Save(ShippingAddress address, SitePageData page)
         {
 
             if (this.PageContext?.Page != null)
             {
-                var currentPage = this.PageContext.Page as DemoFormPage;
+                var mainContentArea = this.PageContext.Page.GetPropertyValue<ContentArea>("MainContentArea");
 
-                foreach (var item in currentPage.MainContentArea.Items)
+                foreach (var item in mainContentArea.Items)
                 {
                     var shippingBlock = contentLoader.Get<ShippingAddressBlock>(item.ContentLink);
 

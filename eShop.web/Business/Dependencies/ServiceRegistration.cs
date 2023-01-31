@@ -18,7 +18,14 @@ namespace eShop.web.Business.Dependencies
             services.AddTransient<ITestService, TestService>();
             services.AddTransient<ContentAreaRenderer, CustomContentAreaRenderer>();
             services.AddScoped<IContentRenderer, ErrorHandlingContentRenderer>();
+            services.AddScoped<IFeedService, FeedService>();
             services.AddStackExchangeRedisExtensions();
+
+            //services.AddAzureBlobProvider("Azure", o => CMS 12
+            // {
+            //     o.ConnectionString = { The Azuer storage connection string};
+            //     o.ContainerName = { The container name};
+            // });
         }
 
 

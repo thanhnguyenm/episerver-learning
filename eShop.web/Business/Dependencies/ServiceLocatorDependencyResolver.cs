@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace eShop.web.Business.Dependencies
 {
+    //For using Service Locator, if we use StructureMap, we can remove this line
     public class ServiceLocatorDependencyResolver : IDependencyResolver
     {
         readonly IServiceLocator _serviceLocator;

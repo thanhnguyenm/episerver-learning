@@ -8,8 +8,21 @@ namespace eShop.web.Business.Rendering
     /// <summary>
     /// Extends the default <see cref="ContentAreaRenderer"/> to apply custom CSS classes to each <see cref="ContentFragment"/>.
     /// </summary>
+    /// [ServiceConfiguration(typeof(CustomContentAreaRenderer), Lifecycle = ServiceInstanceScope.Unique)]=> used this if we wanna DI it without AddTransient
     public class CustomContentAreaRenderer : ContentAreaRenderer
     {
+        protected override string GetContentAreaItemTemplateTag(HtmlHelper htmlHelper, ContentAreaItem contentAreaItem)
+        {
+            var templateTag = base.GetContentAreaItemTemplateTag(htmlHelper, contentAreaItem);
+
+            if (!string.IsNullOrWhiteSpace(templateTag))
+                return templateTag;
+
+            var defaultDisplayOption = contentAreaItem.GetContent() as IDefaultDisplayOption;
+
+            return defaultDisplayOption?.DefaultDisplayOption.ToString() ?? string.Empty;
+        }
+
         protected override string GetContentAreaItemCssClass(HtmlHelper htmlHelper, ContentAreaItem contentAreaItem)
         {
             var baseItemClass = base.GetContentAreaItemCssClass(htmlHelper, contentAreaItem);
@@ -17,6 +30,16 @@ namespace eShop.web.Business.Rendering
             var tag = GetContentAreaItemTemplateTag(htmlHelper, contentAreaItem);
             return $"{baseItemClass} {GetTypeSpecificCssClasses(contentAreaItem, ContentRepository)} {GetCssClassForTag(tag)} {tag}";
         }
+
+        //protected override void RenderContentAreaItem(HtmlHelper htmlHelper, ContentAreaItem contentAreaItem, string templateTag, string htmlTag, string cssClass)
+        //{
+            
+        //}
+
+        //protected override bool ShouldRenderWrappingElement(HtmlHelper htmlHelper)
+        //{
+            
+        //}
 
         /// <summary>
         /// Gets a CSS class used for styling based on a tag name (ie a Bootstrap class name)
@@ -59,4 +82,6 @@ namespace eShop.web.Business.Rendering
             return cssClass;
         }
     }
+
+
 }

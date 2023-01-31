@@ -17,23 +17,23 @@
                             @Html.ContentLink(SiteDefinition.Current.StartPage)
                         </li>
                         @Html.MenuList(SiteDefinition.Current.StartPage,
-                                    @<li class="@(item.Selected ? "active" : null)">
-                                        @Html.PageLink(item.Page, null, new { @class = string.Join(" ", item.Page.GetThemeCssClassNames())})
-                                    </li>)
+                                        @<li class="@(item.Selected ? "active" : null)">
+                                            @Html.PageLink(item.Page, null, new { @class = string.Join(" ", item.Page.GetThemeCssClassNames()) })
+                                        </li>)
                         @*<li><a href="#">Women’s</a></li>
-                        <li><a href="#">Men’s</a></li>
-                        <li><a href="./shop.html">Shop</a></li>
-                        <li>
-                            <a href="#">Pages</a>
-                            <ul class="dropdown">
-                                <li><a href="./product-details.html">Product Details</a></li>
-                                <li><a href="./shop-cart.html">Shop Cart</a></li>
-                                <li><a href="./checkout.html">Checkout</a></li>
-                                <li><a href="./blog-details.html">Blog Details</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="./blog.html">Blog</a></li>
-                        <li><a href="./contact.html">Contact</a></li>*@
+                            <li><a href="#">Men’s</a></li>
+                            <li><a href="./shop.html">Shop</a></li>
+                            <li>
+                                <a href="#">Pages</a>
+                                <ul class="dropdown">
+                                    <li><a href="./product-details.html">Product Details</a></li>
+                                    <li><a href="./shop-cart.html">Shop Cart</a></li>
+                                    <li><a href="./checkout.html">Checkout</a></li>
+                                    <li><a href="./blog-details.html">Blog Details</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="./blog.html">Blog</a></li>
+                            <li><a href="./contact.html">Contact</a></li>*@
                     </ul>
                 </nav>
             </div>
@@ -67,3 +67,5 @@
     </div>
 </header>
 <!-- Header Section End -->
+
+@Html.Partial("_Breadcrumbs")
