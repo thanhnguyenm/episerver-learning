@@ -1,0 +1,52 @@
+﻿@model eShop.web.ViewModels.PageViewModel<eShop.web.Models.Pages.UploadFilePage>
+
+<form name="frm" id="frm">
+    @Html.AntiForgeryToken()
+    @Html.Hidden("currentPage", Model.CurrentPage.ContentLink)
+    <input type="file" name="file" id="inputAttachment" />
+    <button type="button" value="Submit" id="btnSubmit">Submit</button>
+</form>
+
+@section scripts {
+<script>
+    $('#btnSubmit').on('click', function () {
+
+        var formData = new FormData();
+        formData.append("File", $('#inputAttachment')[0].files[0]);
+        formData.append("Name", $('#inputAttachment')[0].files[0].name);
+        formData.append("CurrentPage", $('#currentPage').val());
+
+        $.ajax({
+            // Your server script to process the upload
+            url: '/UploadFilePage/Upload',
+            type: 'POST',
+            // Form data
+            data: formData,
+            beforeSend: function (req) {
+                //displayAjaxLoading(true);
+                //var header = $('[name=__RequestVerificationToken]').val();
+                //req.setRequestHeader('__RequestVerificationToken', header);
+            },
+
+            xhr: function () {  // Custom XMLHttpRequest
+                var myXhr = $.ajaxSettings.xhr();
+                if (myXhr.upload) { // Check if upload property exists
+                    // Progress code if you want
+                }
+                return myXhr;
+            },
+
+            cache: false,
+            contentType: false,
+            processData: false
+        }).done(function (response) {
+            alert('Done');
+        }).fail(function (data) {
+            alert('Errors');
+        });
+
+
+    });
+
+</script>
+}

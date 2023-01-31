@@ -1,0 +1,39 @@
+﻿@using EPiServer
+@using EPiServer.Framework.Web.Mvc.Html
+@using EPiServer.Framework.Web.Resources
+@using EPiServer.Shell.Navigation
+
+@{ Layout = null; }
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta name="viewport" content="width=device-width" />
+    <title>Custom Dashboard</title>
+    @Html.Raw(ClientResources.RenderResources("ShellCore"))
+    @Html.Raw(ClientResources.RenderResources("ShellWidgets"))
+    @Html.Raw(ClientResources.RenderResources("ShellCoreLightTheme"))
+    @Html.Raw(ClientResources.RenderResources("ShellWidgetsLightTheme"))
+    @Html.Raw(ClientResources.RenderResources("Navigation"))
+    @Html.Raw(ClientResources.RenderResources("DijitWidgets", new[] { ClientResourceType.Style }))
+    @Html.CssLink(UriSupport.ResolveUrlFromUIBySettings("App_Themes/Default/Styles/system.css"))
+    @Html.CssLink(UriSupport.ResolveUrlFromUIBySettings("App_Themes/Default/Styles/ToolButton.css"))
+
+    <style>
+        #content {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        @Html.Raw(Html.CreatePlatformNavigationMenu())
+        @*<iframe width="100%" height="100%" frameborder="0" src="/episerver/backoffice/Plugins/CustomCmsGlobalHangfire" />*@
+    </div>
+</body>
+</html>

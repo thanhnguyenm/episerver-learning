@@ -1,0 +1,32 @@
+﻿@model eShop.web.ViewModels.IPageViewModel<eShop.web.Models.Pages.SitePageData>
+@using EPiServer.Core
+@using EPiServer.Web
+
+@*Helper used as template for a page in the bread crumb, recursively triggering the rendering of the next page*@
+@helper ItemTemplate(MenuItemModel breadCrumbItem)
+{
+    if (breadCrumbItem.Selected)
+    {
+        @Url.PageLink(breadCrumbItem.Page, Model.CurrentPage)
+
+        @*if (!breadCrumbItem.Page.ContentLink.CompareToIgnoreWorkID(Model.CurrentPage.ContentLink))
+            {
+                <span class="divider">/</span>
+                @Html.MenuList(breadCrumbItem.Page.ContentLink, ItemTemplate)
+            }*@
+    }
+}
+
+<!-- Breadcrumb Begin -->
+<div class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__links">
+                    @Html.MenuList(SiteDefinition.Current.StartPage, ItemTemplate, includeRoot: true, requireVisibleInMenu: false, requirePageTemplate: false)
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb End -->

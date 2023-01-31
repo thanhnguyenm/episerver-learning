@@ -1,0 +1,11 @@
+﻿@using EPiServer.Web.Routing
+@model  BlockViewModel<eShop.web.Models.Blocks.CategoryBannerBlock>
+
+<div class="categories__item set-bg" data-setbg="@Url.ContentUrl(Model.CurrentBlock.Url)">
+@*<div class="categories__item set-bg" data-setbg="@UrlResolver.Current.GetUrl(Model.CurrentBlock.Url)">*@
+    <div class="categories__text">
+        <h4>@Model.CurrentBlock.Title</h4>
+        <p>@Model.CurrentBlock.Description</p>
+        <a href="@Model.CurrentBlock.Link">Shop now</a>
+    </div>
+</div>

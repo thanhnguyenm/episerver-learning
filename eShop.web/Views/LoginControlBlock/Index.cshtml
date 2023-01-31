@@ -1,0 +1,65 @@
+﻿@model  eShop.web.ViewModels.LoginControlBlockViewModel
+@{
+    var loginModel = Model.CurrentBlock.LoginModel ?? new LoginModel();
+    bool isLoggedin = false;
+    if (Request.Cookies.Get(FormsAuthentication.FormsCookieName) != null)
+    {
+        isLoggedin = true;
+    }
+}
+
+@if (isLoggedin)
+{
+    <a href="/LoginControlBlock/Logout">Logout</a>
+}
+else
+{
+    using (Html.BeginForm("Login", "LoginControlBlock", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.Hidden("currentPageLink", Model.CurrentPageLink)
+        @Html.Hidden("currentBlockLink", Model.CurrentBlockLink)
+
+
+        <h1>
+            @Model.CurrentBlock.BlockName
+        </h1>
+
+        <div>
+            @Html.PropertyFor(x => x.CurrentBlock.BlockDescription)
+        </div>
+
+        <div class="text-warning">
+            @Html.ValidationSummary()
+        </div>
+
+        <div>
+            @Html.Label(@Model.CurrentBlock.UserNameLabel)
+            <input type="text" name="Username" value="@loginModel.Username" placeholder="@Model.CurrentBlock.UserNamePlaceholder">
+        </div>
+
+        <div>
+            @Html.Label(@Model.CurrentBlock.PasswordLabel)
+            <input type="password" name="Password" value="@loginModel.Password">
+        </div>
+
+        <div>
+            <button href="@Model.CurrentBlock.SignInFormUrl">
+                @Model.CurrentBlock.SignInText
+            </button>
+        </div>
+
+        <div>
+            <a src="@Model.CurrentBlock.ForgotYourPasswordUrl">
+                @Model.CurrentBlock.ForgotYourPasswordText
+            </a>
+        </div>
+
+        <div>
+
+            @Html.CheckBox("RememberMe", @loginModel.RememberMe)
+            @Model.CurrentBlock.RememberMeText
+
+        </div>
+    }
+}
