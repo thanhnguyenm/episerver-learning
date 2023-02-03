@@ -11,7 +11,7 @@ namespace eShop.web.Business.Components.CustomPage
            Categories = "cms",
            WidgetType = "nitecoui/components/CustomPanelWidget",
            Title = "Custom Page Widget",
-           SortOrder = 1100)]
+           SortOrder = 1200)]
     public class CustomPanelWidget
     {
         public CustomPanelWidget()
