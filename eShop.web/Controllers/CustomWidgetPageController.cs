@@ -21,7 +21,7 @@ namespace eShop.web.Controllers
 
 
             return PartialView("Widgets/_CustomWidgetPage", viewmodel);
-            
+            //return View("Index", viewmodel);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace eShop.web.Controllers
     {
         // GET: DebuggingInformation
         [Authorize(Roles = "WebEditors, WebAdmins, Administrators")]
-        public ActionResult Index()
+        public ActionResult Index(SitePageData currentPage)
         {
             var pageRouteHelper = EPiServer.ServiceLocation.ServiceLocator.Current.GetInstance<IPageRouteHelper>();
             var viewModel = PageViewModel.Create(pageRouteHelper.Page as SitePageData);

@@ -485,6 +485,7 @@
     <Compile Include="Business\Components\Comments\Comment.cs" />
     <Compile Include="Business\Components\Comments\CommentsPaneDescriptor.cs" />
     <Compile Include="Business\Components\Comments\CommentsPaneNavigationComponent.cs" />
+    <Compile Include="Business\Components\CustomPage\Test1Widget.cs" />
     <Compile Include="Business\Components\CustomPage\CustomPanelWidget.cs" />
     <Compile Include="Business\Components\UserManual\UserManualWidget.cs" />
     <Compile Include="Business\Components\VideoAsset\VideoAssetComponent.cs" />
@@ -648,6 +649,7 @@
     <Content Include="ClientResources\Images\icons\layoutIcons24x24.png" />
     <Content Include="ClientResources\Scripts\Components\CommentComponent.js" />
     <Content Include="ClientResources\Scripts\Components\CommentViewModel.js" />
+    <Content Include="ClientResources\Scripts\Components\Test1Widget.js" />
     <Content Include="ClientResources\Scripts\Components\CustomPanelWidget.js" />
     <Content Include="ClientResources\Scripts\Components\NewCommentCommand.js" />
     <Content Include="ClientResources\Scripts\Components\NewVideoCommand.js" />
