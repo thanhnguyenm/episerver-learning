@@ -1,42 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\MSTest.TestAdapter.2.1.2\build\net45\MSTest.TestAdapter.props" Condition="Exists('..\packages\MSTest.TestAdapter.2.1.2\build\net45\MSTest.TestAdapter.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>
-    </ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D0CB9EBC-F2C2-4169-9181-31000C8C861E}</ProjectGuid>
-    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <ProjectGuid>{FD1DBD24-8546-4415-8960-A0A10BB2E448}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>eShop.web</RootNamespace>
-    <AssemblyName>eShop.web</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <MvcBuildViews>true</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <OldToolsVersion>4.0</OldToolsVersion>
-    <UpgradeBackupLocation />
-    <Use64BitIISExpress />
-    <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode />
-    <UseGlobalApplicationHostFile />
+    <RootNamespace>eShop.web.test</RootNamespace>
+    <AssemblyName>eShop.web.test</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">15.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -44,13 +33,35 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\</OutputPath>
+    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxControlToolkit, Version=3.0.30930.28736, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+    <Reference Include="Castle.Core, Version=5.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.5.1.1\lib\net462\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSTest.TestFramework.2.1.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSTest.TestFramework.2.1.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq, Version=4.18.0.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.18.4\lib\net462\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+	
+	<Reference Include="AjaxControlToolkit, Version=3.0.30930.28736, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.Commerce.Core.13.33.0\lib\net461\AjaxControlToolkit.dll</HintPath>
     </Reference>
     <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
@@ -58,9 +69,6 @@
     </Reference>
     <Reference Include="AuthorizeNet, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AuthorizeNet.1.9.4\lib\AuthorizeNet.dll</HintPath>
-    </Reference>
-    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>..\packages\Castle.Core.4.2.1\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Windsor, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\packages\Castle.Windsor.4.1.0\lib\net45\Castle.Windsor.dll</HintPath>
@@ -381,9 +389,6 @@
       <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime" />
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-    </Reference>
     <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -412,9 +417,6 @@
     </Reference>
     <Reference Include="System.Threading.Tasks.Dataflow, Version=4.5.24.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Tpl.Dataflow.4.5.24\lib\portable-net45+win8+wpa81\System.Threading.Tasks.Dataflow.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Transactions" />
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -469,459 +471,29 @@
     <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
     </Reference>
-    <Reference Include="WindowsBase" />
   </ItemGroup>
-  <PropertyGroup>
-    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
-    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-  </PropertyGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ItemGroup>
-    <Compile Include="Business\AdminUI\CustomCmsGlobalMenuProvider.cs" />
-    <Compile Include="Business\AdminUI\CustomQuickNavigator.cs" />
-    <Compile Include="Business\AdminUI\CustomAdminGlobalMenuProvider.cs" />
-    <Compile Include="Business\Components\Comments\Comment.cs" />
-    <Compile Include="Business\Components\Comments\CommentsPaneDescriptor.cs" />
-    <Compile Include="Business\Components\Comments\CommentsPaneNavigationComponent.cs" />
-    <Compile Include="Business\Components\CustomPage\CustomPanelWidget.cs" />
-    <Compile Include="Business\Components\UserManual\UserManualWidget.cs" />
-    <Compile Include="Business\Components\VideoAsset\VideoAssetComponent.cs" />
-    <Compile Include="Business\Components\VideoAsset\VideoAssetDescriptor.cs" />
-    <Compile Include="Business\Filters\DisableInvalidDisplayOptionsAttribute.cs" />
-    <Compile Include="Business\Filters\ExportModelStateToTempDataFilter.cs" />
-    <Compile Include="Business\Filters\ImportModelStateFromTempDataFilter.cs" />
-    <Compile Include="Business\Filters\HangFireDashboardAttribute.cs" />
-    <Compile Include="Business\Filters\MaxItemsAllowedAtribute.cs" />
-    <Compile Include="Business\Filters\ModelStateTempDataTransferFilter.cs" />
-    <Compile Include="Business\CacheBusting\CdnMediaHandler.cs" />
-    <Compile Include="Business\Dependencies\RedisCacheRegistation.cs" />
-    <Compile Include="Business\Filters\BrowserCachingActionFilter.cs" />
-    <Compile Include="Business\Filters\PageContextActionFilter.cs" />
-    <Compile Include="Business\HangfireJob\SampleHangfireJob.cs" />
-    <Compile Include="Business\Hubs\MyHub1.cs" />
-    <Compile Include="Business\Hubs\NotificationHub.cs" />
-    <Compile Include="Business\Initialization\BundleConfig.cs" />
-    <Compile Include="Business\Initialization\CdnModuleInitialization.cs" />
-    <Compile Include="Business\Initialization\ChangingLoginImagesModule.cs" />
-    <Compile Include="Business\Initialization\ContainerPageUIDescriptorModule.cs" />
-    <Compile Include="Business\Initialization\DependencyResolverInitialization.cs" />
-    <Compile Include="Business\Dependencies\ServiceLocatorDependencyResolver.cs" />
-    <Compile Include="Business\Dependencies\ServiceRegistration.cs" />
-    <Compile Include="Business\Dependencies\StructureMapDependencyResolver.cs" />
-    <Compile Include="Business\EditorDescriptors\StringListEditorDescriptor.cs" />
-    <Compile Include="Business\Initialization\CustomizedRenderingInitialization.cs" />
-    <Compile Include="Business\Initialization\DisplayOptionsInitialization.cs" />
-    <Compile Include="Business\Initialization\EventsInitialization.cs" />
-    <Compile Include="Business\Initialization\FilterConfig.cs" />
-    <Compile Include="Business\ScheduleTasks\ConsoleLogJob.cs" />
-    <Compile Include="Business\Rendering\ContainerPageUIDescriptor.cs" />
-    <Compile Include="Business\Rendering\ContentPageMetaDataPlugin.cs" />
-    <Compile Include="Business\Rendering\CustomContentAreaRenderer.cs" />
-    <Compile Include="Business\Rendering\ErrorHandlingContentRenderer.cs" />
-    <Compile Include="Business\Rendering\ICustomCssInContentArea.cs" />
-    <Compile Include="Business\Rendering\IDefaultDisplayOption.cs" />
-    <Compile Include="Business\Rendering\IDisallowDisplayOption.cs" />
-    <Compile Include="Business\Rendering\IModifyLayout.cs" />
-    <Compile Include="Business\Rendering\ManuallyBlockRenderingAttribute.cs" />
-    <Compile Include="Business\Rendering\SiteViewEngine.cs" />
-    <Compile Include="Business\Rendering\TemplateCoordinator.cs" />
-    <Compile Include="Business\ScheduleTasks\NotificationScheduledTask.cs" />
-    <Compile Include="Business\ScheduleTasks\PageOrderingScheduledTask.cs" />
-    <Compile Include="Business\ScheduleTasks\StandardPageImporterJob.cs" />
-    <Compile Include="Business\Search\InternalPageSearchProvider.cs" />
-    <Compile Include="Business\Services\FeedService.cs" />
-    <Compile Include="Business\Services\ICacheManager.cs" />
-    <Compile Include="Business\Services\IExamplePluginService.cs" />
-    <Compile Include="Business\Services\IFeedService.cs" />
-    <Compile Include="Business\Services\IPageViewContextFactory.cs" />
-    <Compile Include="Business\Services\ITestService.cs" />
-    <Compile Include="Business\Services\ITestService2.cs" />
-    <Compile Include="Business\Services\ExamplePluginService.cs" />
-    <Compile Include="Business\Services\PageViewContextFactory.cs" />
-    <Compile Include="Business\Services\RedisCacheManager.cs" />
-    <Compile Include="Business\Services\TestService.cs" />
-    <Compile Include="Business\Services\TestService2.cs" />
-    <Compile Include="Business\Validators\CategoryBannerTypeVaidator.cs" />
-    <Compile Include="Business\Validators\StartPageValidator.cs" />
-    <Compile Include="Controllers\BaseBlockController.cs" />
-    <Compile Include="Controllers\BaseFormBlockController.cs" />
-    <Compile Include="Controllers\BasePartialController.cs" />
-    <Compile Include="Controllers\CategoryBannerBlockController.cs" />
-    <Compile Include="Controllers\ColourBlockController.cs" />
-    <Compile Include="Controllers\CustomAdminGlobalMainPageController.cs" />
-    <Compile Include="Controllers\CustomCmsGlobalHangfireController.cs" />
-    <Compile Include="Controllers\CustomWidgetPageController.cs" />
-    <Compile Include="Controllers\DebuggingInformationController.cs" />
-    <Compile Include="Controllers\DefaultPageController.cs" />
-    <Compile Include="Controllers\DemoFormPageController.cs" />
-    <Compile Include="Controllers\LoginControlBlockController.cs" />
-    <Compile Include="Controllers\BasePageController.cs" />
-    <Compile Include="Controllers\PreviewController.cs" />
-    <Compile Include="Controllers\RssFeedController.cs" />
-    <Compile Include="Controllers\ShippingAddressBlockController.cs" />
-    <Compile Include="Controllers\StartPageController.cs" />
-    <Compile Include="Controllers\StartPagePartialController.cs" />
-    <Compile Include="Controllers\UploadFilePageController.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Global.cs" />
-    <Compile Include="Helpers\CategorizableExtensions.cs" />
-    <Compile Include="Helpers\ContentExtensions.cs" />
-    <Compile Include="Helpers\FileHelper.cs" />
-    <Compile Include="Helpers\HtmlHelpers.cs" />
-    <Compile Include="Helpers\NotificationCentre.cs" />
-    <Compile Include="Helpers\StringExtensions.cs" />
-    <Compile Include="Helpers\UrlHelpers.cs" />
-    <Compile Include="Infrastructure\EPiServerCommerceInitializationModule.cs" />
-    <Compile Include="Models\Blocks\CategoryBannerBlock.cs" />
-    <Compile Include="Models\Blocks\ColourBlock.cs" />
-    <Compile Include="Models\Blocks\HiddenBlock.cs" />
-    <Compile Include="Models\Blocks\HotTrendBlock.cs" />
-    <Compile Include="Models\Blocks\LoginControlBlock.cs" />
-    <Compile Include="Models\Blocks\ShippingAddress.cs" />
-    <Compile Include="Models\Blocks\ShippingAddressBlock.cs" />
-    <Compile Include="Models\Blocks\SiteBlockData.cs" />
-    <Compile Include="Models\Blocks\SiteLogoTypeBlock.cs" />
-    <Compile Include="Models\Media\GenericMedia.cs" />
-    <Compile Include="Models\Media\ImageFile.cs" />
-    <Compile Include="Models\Media\VideoFile.cs" />
-    <Compile Include="Models\Pages\ContainerPage.cs" />
-    <Compile Include="Models\Pages\CustomWidgetPage.cs" />
-    <Compile Include="Models\Pages\DemoFormPage.cs" />
-    <Compile Include="Models\Pages\IContainerPage.cs" />
-    <Compile Include="Models\Pages\SitePageData.cs" />
-    <Compile Include="Models\Pages\StandardPage.cs" />
-    <Compile Include="Models\Pages\StartPage.cs" />
-    <Compile Include="Business\EditorDescriptors\ExampleStringProperty.cs" />
-    <Compile Include="Models\Pages\UploadFilePage.cs" />
-    <Compile Include="Models\Properties\PropertyStringList.cs" />
-    <Compile Include="Models\SiteContentType.cs" />
-    <Compile Include="Models\SiteImageUrl.cs" />
+    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Startup.cs" />
-    <Compile Include="Templates\Plugins\ExamplePlugin.aspx.cs">
-      <DependentUpon>ExamplePlugin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Templates\Plugins\ExamplePlugin.aspx.designer.cs">
-      <DependentUpon>ExamplePlugin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Templates\Plugins\VppListingPlugin.aspx.cs">
-      <DependentUpon>VppListingPlugin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Templates\Plugins\VppListingPlugin.aspx.designer.cs">
-      <DependentUpon>VppListingPlugin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Templates\UserControl\AdminImagePicker.ascx.cs">
-      <DependentUpon>AdminImagePicker.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Templates\UserControl\AdminImagePicker.ascx.designer.cs">
-      <DependentUpon>AdminImagePicker.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModels\BlockViewModel.cs" />
-    <Compile Include="ViewModels\ConditionalLink.cs" />
-    <Compile Include="ViewModels\ContentRenderingErrorModel.cs" />
-    <Compile Include="ViewModels\IBlockViewModel.cs" />
-    <Compile Include="ViewModels\IPageViewModel.cs" />
-    <Compile Include="ViewModels\LayoutViewModel.cs" />
-    <Compile Include="ViewModels\LoginControlBlockViewModel.cs" />
-    <Compile Include="ViewModels\LoginModel.cs" />
-    <Compile Include="ViewModels\MenuItemModel.cs" />
-    <Compile Include="ViewModels\Notification.cs" />
-    <Compile Include="ViewModels\PageViewModel.cs" />
-    <Compile Include="ViewModels\PreviewModel.cs" />
-    <Compile Include="ViewModels\RssActionResult.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\BaseBlock\" />
-    <Folder Include="Views\BaseFormBlock\" />
-    <Folder Include="Views\CustomAdminMainPage\" />
-    <Folder Include="Views\RssFeed\" />
-    <Folder Include="Views\StartPagePartial\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ClientResources\Images\icons\layoutIcons24x24.png" />
-    <Content Include="ClientResources\Scripts\Components\CommentComponent.js" />
-    <Content Include="ClientResources\Scripts\Components\CommentViewModel.js" />
-    <Content Include="ClientResources\Scripts\Components\CustomPanelWidget.js" />
-    <Content Include="ClientResources\Scripts\Components\NewCommentCommand.js" />
-    <Content Include="ClientResources\Scripts\Components\NewVideoCommand.js" />
-    <Content Include="ClientResources\Scripts\Components\UserManualWidget.js" />
-    <Content Include="ClientResources\Scripts\Components\VideoAsset.js" />
-    <Content Include="ClientResources\Scripts\Components\VideoAssetViewModel.js" />
-    <Content Include="ClientResources\Scripts\Editors\ExampleString.js" />
-    <Content Include="ClientResources\Scripts\Editors\StringList.js" />
-    <Content Include="ClientResources\Scripts\Editors\Templates\ExampleString.html" />
-    <Content Include="ClientResources\Styles\LayoutIcons.css" />
-    <Content Include="ClientResources\Styles\Styles.css" />
-    <Content Include="favicon.ico" />
-    <Content Include="IndexingService\IndexingService.svc" />
-    <Content Include="Readme.txt" />
-    <Content Include="Resources\LanguageFiles\Display.xml" />
-    <Content Include="Resources\LanguageFiles\EditorHints.xml" />
-    <Content Include="modules\_protected\EPiServer.Commerce.Shell\EPiServer.Commerce.Shell.zip" />
-    <Content Include="modules\_protected\Commerce\Commerce.zip" />
-    <Content Include="modules\_protected\EPiServer.Commerce.UI.CustomerService\EPiServer.Commerce.UI.CustomerService.zip" />
-    <Content Include="Configs\baf.config" />
-    <Content Include="Configs\baf.data.manager.config" />
-    <Content Include="Configs\baf.data.metaobject.config" />
-    <Content Include="Configs\ecf.app.config" />
-    <Content Include="Configs\ecf.catalog.config" />
-    <Content Include="Configs\ecf.customer.config" />
-    <Content Include="Configs\ecf.customization.config" />
-    <Content Include="Configs\ecf.marketing.config" />
-    <Content Include="Configs\ecf.order.config" />
-    <Content Include="Configs\ecf.security.config" />
-    <Content Include="Configs\ecf.ssl.config" />
-    <Content Include="Configs\Mediachase.Search.config" />
-    <Content Include="ConnectionStrings.config" />
-    <Content Include="ConnectionStrings.Default.config" />
-    <Content Include="License.config" />
-    <Content Include="modules\_protected\EPiServer.Commerce.Shell.ManagerIntegration\EPiServer.Commerce.Shell.ManagerIntegration.zip" />
-    <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.6.4.js" />
-    <Content Include="Scripts\jquery-1.6.4.min.js" />
-    <Content Include="Scripts\jquery.signalR-2.4.3.js" />
-    <Content Include="Scripts\jquery.signalR-2.4.3.min.js" />
-    <Content Include="Static\css\bootstrap.min.css" />
-    <Content Include="Static\css\elegant-icons.css" />
-    <Content Include="Static\css\font-awesome.min.css" />
-    <Content Include="Static\css\jquery-ui.min.css" />
-    <Content Include="Static\css\magnific-popup.css" />
-    <Content Include="Static\css\owl.carousel.min.css" />
-    <Content Include="Static\css\slicknav.min.css" />
-    <Content Include="Static\css\style.css" />
-    <Content Include="Static\fonts\ElegantIcons.svg" />
-    <Content Include="Static\fonts\fontawesome-webfont.svg" />
-    <Content Include="Static\gfx\block-type-icon.png" />
-    <Content Include="Static\gfx\page-type-icon.png" />
-    <Content Include="Static\html\UserGuide\ContentEditorsUserManual.html" />
-    <Content Include="Static\icons\cms\drilling.png" />
-    <Content Include="Static\icons\cms\tablet.png" />
-    <Content Include="Static\img\banner\banner-1.jpg" />
-    <Content Include="Static\img\banner\banner-2.jpg" />
-    <Content Include="Static\img\banner\banner-3.jpg" />
-    <Content Include="Static\img\blog\blog-1.jpg" />
-    <Content Include="Static\img\blog\blog-10.jpg" />
-    <Content Include="Static\img\blog\blog-2.jpg" />
-    <Content Include="Static\img\blog\blog-3.jpg" />
-    <Content Include="Static\img\blog\blog-4.jpg" />
-    <Content Include="Static\img\blog\blog-5.jpg" />
-    <Content Include="Static\img\blog\blog-6.jpg" />
-    <Content Include="Static\img\blog\blog-7.jpg" />
-    <Content Include="Static\img\blog\blog-8.jpg" />
-    <Content Include="Static\img\blog\blog-9.jpg" />
-    <Content Include="Static\img\blog\details\blog-details.jpg" />
-    <Content Include="Static\img\blog\details\comment-1.jpg" />
-    <Content Include="Static\img\blog\details\comment-2.jpg" />
-    <Content Include="Static\img\blog\details\comment-3.jpg" />
-    <Content Include="Static\img\blog\sidebar\fp-1.jpg" />
-    <Content Include="Static\img\blog\sidebar\fp-2.jpg" />
-    <Content Include="Static\img\blog\sidebar\fp-3.jpg" />
-    <Content Include="Static\img\categories\category-1.jpg" />
-    <Content Include="Static\img\categories\category-2.jpg" />
-    <Content Include="Static\img\categories\category-3.jpg" />
-    <Content Include="Static\img\categories\category-4.jpg" />
-    <Content Include="Static\img\categories\category-5.jpg" />
-    <Content Include="Static\img\discount.jpg" />
-    <Content Include="Static\img\instagram\insta-1.jpg" />
-    <Content Include="Static\img\instagram\insta-2.jpg" />
-    <Content Include="Static\img\instagram\insta-3.jpg" />
-    <Content Include="Static\img\instagram\insta-4.jpg" />
-    <Content Include="Static\img\instagram\insta-5.jpg" />
-    <Content Include="Static\img\instagram\insta-6.jpg" />
-    <Content Include="Static\img\logo.png" />
-    <Content Include="Static\img\payment\payment-1.png" />
-    <Content Include="Static\img\payment\payment-2.png" />
-    <Content Include="Static\img\payment\payment-3.png" />
-    <Content Include="Static\img\payment\payment-4.png" />
-    <Content Include="Static\img\payment\payment-5.png" />
-    <Content Include="Static\img\product\details\product-1.jpg" />
-    <Content Include="Static\img\product\details\product-2.jpg" />
-    <Content Include="Static\img\product\details\product-3.jpg" />
-    <Content Include="Static\img\product\details\product-4.jpg" />
-    <Content Include="Static\img\product\details\thumb-1.jpg" />
-    <Content Include="Static\img\product\details\thumb-2.jpg" />
-    <Content Include="Static\img\product\details\thumb-3.jpg" />
-    <Content Include="Static\img\product\details\thumb-4.jpg" />
-    <Content Include="Static\img\product\product-1.jpg" />
-    <Content Include="Static\img\product\product-2.jpg" />
-    <Content Include="Static\img\product\product-3.jpg" />
-    <Content Include="Static\img\product\product-4.jpg" />
-    <Content Include="Static\img\product\product-5.jpg" />
-    <Content Include="Static\img\product\product-6.jpg" />
-    <Content Include="Static\img\product\product-7.jpg" />
-    <Content Include="Static\img\product\product-8.jpg" />
-    <Content Include="Static\img\product\related\rp-1.jpg" />
-    <Content Include="Static\img\product\related\rp-2.jpg" />
-    <Content Include="Static\img\product\related\rp-3.jpg" />
-    <Content Include="Static\img\product\related\rp-4.jpg" />
-    <Content Include="Static\img\shop-cart\cp-1.jpg" />
-    <Content Include="Static\img\shop-cart\cp-2.jpg" />
-    <Content Include="Static\img\shop-cart\cp-3.jpg" />
-    <Content Include="Static\img\shop-cart\cp-4.jpg" />
-    <Content Include="Static\img\shop\shop-1.jpg" />
-    <Content Include="Static\img\shop\shop-2.jpg" />
-    <Content Include="Static\img\shop\shop-3.jpg" />
-    <Content Include="Static\img\shop\shop-4.jpg" />
-    <Content Include="Static\img\shop\shop-5.jpg" />
-    <Content Include="Static\img\shop\shop-6.jpg" />
-    <Content Include="Static\img\shop\shop-7.jpg" />
-    <Content Include="Static\img\shop\shop-8.jpg" />
-    <Content Include="Static\img\shop\shop-9.jpg" />
-    <Content Include="Static\img\trend\bs-1.jpg" />
-    <Content Include="Static\img\trend\bs-2.jpg" />
-    <Content Include="Static\img\trend\bs-3.jpg" />
-    <Content Include="Static\img\trend\f-1.jpg" />
-    <Content Include="Static\img\trend\f-2.jpg" />
-    <Content Include="Static\img\trend\f-3.jpg" />
-    <Content Include="Static\img\trend\ht-1.jpg" />
-    <Content Include="Static\img\trend\ht-2.jpg" />
-    <Content Include="Static\img\trend\ht-3.jpg" />
-    <Content Include="Static\js\bootstrap.min.js" />
-    <Content Include="module.config" />
-    <Content Include="EPiServerFramework.config" />
-    <Content Include="Episerver.config" />
-    <None Include="Static\js\jquery-3.4.1.intellisense.js" />
-    <Content Include="Static\js\jquery-3.4.1.js" />
-    <Content Include="Static\js\jquery-3.4.1.min.js" />
-    <Content Include="Static\js\jquery-3.4.1.slim.js" />
-    <Content Include="Static\js\jquery-3.4.1.slim.min.js" />
-    <Content Include="Static\js\jquery-ui.min.js" />
-    <Content Include="Static\js\jquery.countdown.min.js" />
-    <Content Include="Static\js\jquery.magnific-popup.min.js" />
-    <Content Include="Static\js\jquery.nicescroll.min.js" />
-    <Content Include="Static\js\jquery.slicknav.js" />
-    <None Include="Static\js\jquery.validate-vsdoc.js" />
-    <Content Include="Static\js\jquery.validate.js" />
-    <Content Include="Static\js\jquery.validate.min.js" />
-    <Content Include="Static\js\jquery.validate.unobtrusive.js" />
-    <Content Include="Static\js\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Static\js\main.js" />
-    <Content Include="Static\js\mixitup.min.js" />
-    <Content Include="Static\js\modernizr-2.8.3.js" />
-    <Content Include="Static\js\owl.carousel.min.js" />
-    <Content Include="Templates\Plugins\ExamplePlugin.aspx" />
-    <Content Include="Templates\Plugins\VppListingPlugin.aspx" />
-    <Content Include="Templates\UserControl\AdminImagePicker.ascx" />
-    <Content Include="Views\Web.config" />
-    <Content Include="Global.asax" />
-    <Content Include="Web.config" />
-    <None Include="EPiServerLog.config" />
-    <Content Include="modules\_protected\EPiServer.Cms.TinyMce\web.config" />
-    <Content Include="modules\_protected\EPiServer.Cms.TinyMce\EPiServer.Cms.TinyMce.zip" />
-    <Content Include="modules\_protected\Shell\web.config" />
-    <Content Include="modules\_protected\Shell\Shell.zip" />
-    <Content Include="modules\_protected\CMS\web.config" />
-    <Content Include="modules\_protected\CMS\CMS.zip" />
+    <None Include="app.config" />
     <None Include="packages.config" />
-    <Content Include="Views\Shared\_Banner.cshtml" />
-    <Content Include="Views\Shared\_Categories.cshtml" />
-    <Content Include="Views\Shared\_Discount.cshtml" />
-    <Content Include="Views\Shared\_Footer.cshtml" />
-    <Content Include="Views\Shared\_Header.cshtml" />
-    <Content Include="Views\Shared\_Instagram.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Shared\_OffcastMenu.cshtml" />
-    <Content Include="Views\Shared\_Products.cshtml" />
-    <Content Include="Views\Shared\_Services.cshtml" />
-    <Content Include="Views\Shared\_Trends.cshtml" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\StartPage\Index.cshtml" />
-    <Content Include="Static\fonts\ElegantIcons.eot" />
-    <Content Include="Static\fonts\ElegantIcons.ttf" />
-    <Content Include="Static\fonts\ElegantIcons.woff" />
-    <Content Include="Static\fonts\fontawesome-webfont.eot" />
-    <Content Include="Static\fonts\fontawesome-webfont.ttf" />
-    <Content Include="Static\fonts\fontawesome-webfont.woff" />
-    <Content Include="Static\fonts\fontawesome-webfont.woff2" />
-    <Content Include="Static\fonts\FontAwesome.otf" />
-    <Content Include="Static\js\jquery-3.4.1.min.map" />
-    <Content Include="Static\js\jquery-3.4.1.slim.min.map" />
-    <Content Include="Views\Shared\_TemplateError.cshtml" />
-    <Content Include="Views\DemoFormPage\Index.cshtml" />
-    <Content Include="Views\ShippingAddressBlock\Index.cshtml" />
-    <Content Include="Views\Shared\Blocks\SiteLogoTypeBlock.cshtml" />
-    <Content Include="Views\Shared\PagePartials\Page.cshtml" />
-    <Content Include="Views\Preview\Index.cshtml" />
-    <Content Include="Views\ColourBlock\Index.cshtml" />
-    <Content Include="Views\Shared\TemplateHint.cshtml" />
-    <Content Include="Views\Shared\_Breadcrumbs.cshtml" />
-    <Content Include="Views\LoginControlBlock\Index.cshtml" />
-    <Content Include="Views\CategoryBannerBlock\Index.cshtml" />
-    <Content Include="Views\Shared\Blocks\_CategoryBannerBlock.cshtml" />
-    <Content Include="Views\Shared\Widgets\_CustomWidgetPage.cshtml" />
-    <Content Include="Views\CustomWidgetPage\Index.cshtml" />
-    <Content Include="Views\DebuggingInformation\Index.cshtml" />
-    <Content Include="Views\Shared\_CustomAdminLayout.cshtml" />
-    <Content Include="Views\CustomAdminGlobalMainPage\Index.cshtml" />
-    <Content Include="Views\CustomCmsGlobalHangfire\Index.cshtml" />
-    <Content Include="Views\UploadFilePage\Index.cshtml" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <Content Include="__ConnectionStrings.LAMDUCCOMPUTER.config" />
   </ItemGroup>
-  <ProjectExtensions>
-    <VisualStudio>
-      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
-        <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:64340/</IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
-        </WebProjectProperties>
-      </FlavorProperties>
-    </VisualStudio>
-  </ProjectExtensions>
+  <ItemGroup>
+    <ProjectReference Include="..\eShop.web\eShop.web.csproj">
+      <Project>{d0cb9ebc-f2c2-4169-9181-31000c8c861e}</Project>
+      <Name>eShop.web</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.1\build\Microsoft.Extensions.Logging.Abstractions.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.1\build\Microsoft.Extensions.Logging.Abstractions.targets'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.Azure.Services.AppAuthentication.1.0.3\build\Microsoft.Azure.Services.AppAuthentication.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Azure.Services.AppAuthentication.1.0.3\build\Microsoft.Azure.Services.AppAuthentication.targets'))" />
+    <Error Condition="!Exists('..\packages\MSTest.TestAdapter.2.1.2\build\net45\MSTest.TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSTest.TestAdapter.2.1.2\build\net45\MSTest.TestAdapter.props'))" />
+    <Error Condition="!Exists('..\packages\MSTest.TestAdapter.2.1.2\build\net45\MSTest.TestAdapter.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSTest.TestAdapter.2.1.2\build\net45\MSTest.TestAdapter.targets'))" />
   </Target>
-  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
-  <Import Project="..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.1\build\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.1\build\Microsoft.Extensions.Logging.Abstractions.targets')" />
-  <!-- to modify your build process, add your task inside one of the targets below and uncomment it. 
-       other similar extension points exist, see microsoft.common.targets.
-  <target name="beforebuild">
-  </target>-->
-  <Target Name="AfterBuild">
-    <!-- <Copy  -->
-    <!-- SourceFiles="ConnectionStrings.config"  -->
-    <!-- DestinationFiles="obj\$(Configuration)\Temp.ConnectionStrings.config" /> -->
-    <!-- <TransformXml  -->
-    <!-- Source="obj\$(Configuration)\Temp.ConnectionStrings.config"  -->
-    <!-- Transform="ConnectionStrings.$(USERNAME).config"  -->
-    <!-- Destination="obj\$(Configuration)\Transformed.Instant.Settings.local.config"  -->
-    <!-- Condition="Exists('ConnectionStrings.$(USERNAME).config')" /> -->
-    <!-- <ReadLinesFromFile File="obj\$(Configuration)\Transformed.Instant.Settings.local.config"> -->
-    <!-- <Output TaskParameter="Lines" ItemName="TransformedWebConnectionStrings" /> -->
-    <!-- </ReadLinesFromFile> -->
-    <!-- <ReadLinesFromFile File="ConnectionStrings.Default.config"> -->
-    <!-- <Output TaskParameter="Lines" ItemName="UnTransformedConnectionStrings" /> -->
-    <!-- </ReadLinesFromFile> -->
-    <!-- <Copy Condition=" @(UnTransformedConnectionStrings) != @(TransformedWebConnectionStrings) " -->
-    <!-- SourceFiles="obj\$(Configuration)\Transformed.Instant.Settings.local.config" -->
-    <!-- DestinationFiles="ConnectionStrings.config" -->
-    <!-- OverwriteReadOnlyFiles="True" /> -->
-  </Target>
-  <Import Project="..\packages\Microsoft.Azure.Services.AppAuthentication.1.0.3\build\Microsoft.Azure.Services.AppAuthentication.targets" Condition="Exists('..\packages\Microsoft.Azure.Services.AppAuthentication.1.0.3\build\Microsoft.Azure.Services.AppAuthentication.targets')" />
+  <Import Project="..\packages\MSTest.TestAdapter.2.1.2\build\net45\MSTest.TestAdapter.targets" Condition="Exists('..\packages\MSTest.TestAdapter.2.1.2\build\net45\MSTest.TestAdapter.targets')" />
 </Project>

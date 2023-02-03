@@ -22,16 +22,23 @@ namespace eShop.web.Controllers
         private readonly IContentLoader contentLoader;
         private Injected<ITestService2> iTestService2;
 
-        public StartPageController(ITestService service, 
-            ITestService2 testService2, 
-            IContentVersionRepository contentVersionRepository,
-            IContentLoader contentLoader,
-             IObjectInstanceCache objectInstanceCache)
+        public StartPageController(
+            //ITestService service, 
+            //ITestService2 testService2, 
+            //IContentVersionRepository contentVersionRepository,
+            //IContentLoader contentLoader,
+            // IObjectInstanceCache objectInstanceCache
+            )
         {
-            this.service = service;
-            this.testService2 = testService2;
-            this.contentVersionRepository = contentVersionRepository;
-            this.contentLoader = contentLoader;
+            //this.service = service;
+            //this.testService2 = testService2;
+            //this.contentVersionRepository = contentVersionRepository;
+            //this.contentLoader = contentLoader;
+
+            this.service = ServiceLocator.Current.GetInstance<ITestService>();
+            this.testService2 = ServiceLocator.Current.GetInstance<ITestService2>();
+            this.contentVersionRepository = ServiceLocator.Current.GetInstance<IContentVersionRepository>();
+            this.contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
         }
 
         // GET: StartPage
