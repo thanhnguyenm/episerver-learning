@@ -200,3 +200,18 @@ https://josef.codes/how-to-create-a-custom-episerver-7-property-with-dojo/
 https://robertlinde.se/posts/custom-episerver-properties-with-dojo/
 
 https://design.optimizely.com/legacy/episerver-front-end-style-guide/
+
+
+Type name	Description
+VariationContent	A type for variant/SKU models.
+ProductContent	A type for product models.
+BundleContent	A type for bundle models.
+PackageContent	A type for package models.
+NodeContent	A type for category/node models.
+You should not inherit from the following types because they exist only to show various states in the system:
+
+Type name	Description
+CatalogContent	A type for catalog models.
+EntryContentBase	A base type for VariationContent, ProductContent, BundleContent, PackageContent and DynamicPackageContent.
+NodeContentBase	A base type for NodeContent and CatalogContent.
+RootContent	The virtual root in Optimizely's hierarchical representation of Commerce content.

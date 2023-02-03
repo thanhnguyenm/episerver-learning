@@ -75,7 +75,6 @@ namespace eShop.web.Controllers
             // cache checking
             var children = contentLoader.GetChildren<SitePageData>(currentPage.ContentLink);
             
-
             return View(model);
         }
     }

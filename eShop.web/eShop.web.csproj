@@ -564,6 +564,7 @@
     <Compile Include="Controllers\ShippingAddressBlockController.cs" />
     <Compile Include="Controllers\StartPageController.cs" />
     <Compile Include="Controllers\StartPagePartialController.cs" />
+    <Compile Include="Controllers\TestCommercePageController.cs" />
     <Compile Include="Controllers\UploadFilePageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -586,6 +587,7 @@
     <Compile Include="Models\Blocks\ShippingAddressBlock.cs" />
     <Compile Include="Models\Blocks\SiteBlockData.cs" />
     <Compile Include="Models\Blocks\SiteLogoTypeBlock.cs" />
+    <Compile Include="Models\Commerce\SampleCatalog.cs" />
     <Compile Include="Models\Media\GenericMedia.cs" />
     <Compile Include="Models\Media\ImageFile.cs" />
     <Compile Include="Models\Media\VideoFile.cs" />
@@ -597,6 +599,7 @@
     <Compile Include="Models\Pages\StandardPage.cs" />
     <Compile Include="Models\Pages\StartPage.cs" />
     <Compile Include="Business\EditorDescriptors\ExampleStringProperty.cs" />
+    <Compile Include="Models\Pages\TestCommercePage.cs" />
     <Compile Include="Models\Pages\UploadFilePage.cs" />
     <Compile Include="Models\Properties\PropertyStringList.cs" />
     <Compile Include="Models\SiteContentType.cs" />
@@ -625,6 +628,7 @@
       <DependentUpon>AdminImagePicker.ascx</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\BlockViewModel.cs" />
+    <Compile Include="ViewModels\CatalogCreateModel.cs" />
     <Compile Include="ViewModels\ConditionalLink.cs" />
     <Compile Include="ViewModels\ContentRenderingErrorModel.cs" />
     <Compile Include="ViewModels\IBlockViewModel.cs" />
@@ -639,6 +643,7 @@
     <Compile Include="ViewModels\RssActionResult.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Business\Commerce\" />
     <Folder Include="Views\BaseBlock\" />
     <Folder Include="Views\BaseFormBlock\" />
     <Folder Include="Views\CustomAdminMainPage\" />
@@ -864,6 +869,7 @@
     <Content Include="Views\CustomAdminGlobalMainPage\Index.cshtml" />
     <Content Include="Views\CustomCmsGlobalHangfire\Index.cshtml" />
     <Content Include="Views\UploadFilePage\Index.cshtml" />
+    <Content Include="Views\TestCommercePage\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

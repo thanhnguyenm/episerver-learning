@@ -1,0 +1,63 @@
+﻿@model eShop.web.ViewModels.PageViewModel<eShop.web.Models.Pages.TestCommercePage>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Create Catalog</h2>
+@using (Html.BeginForm("CreateCatalog", "TestCommercePage", FormMethod.Post, new { id = "frm" }))
+{
+    <div class="container-fluid">
+
+        @Html.AntiForgeryToken()
+        @Html.Hidden("currentPage", Model.CurrentPage.ContentLink)
+
+        <div role="main" id="main" class="main row">
+            <div class="col-md-12 p-0">
+                Catalog name <input name="CatalogName" id="CatalogName" type="text" />
+            </div>
+        </div>
+        <button type="button" value="Submit" id="btnSubmit">Submit</button>
+    </div>
+}
+
+
+@section scripts {
+    <script>
+    $('#btnSubmit').on('click', function () {
+
+        var postData = new Object();
+        postData.CatalogName = $('#CatalogName')[0].value;
+        
+        $.ajax({
+            // Your server script to process the upload
+            url: '/TestCommercePage/CreateCatalog',
+            type: 'POST',
+            data: JSON.stringify(postData),
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            beforeSend: function (req) {
+                //displayAjaxLoading(true);
+                //var header = $('[name=__RequestVerificationToken]').val();
+                //req.setRequestHeader('__RequestVerificationToken', header);
+            },
+
+            xhr: function () {  // Custom XMLHttpRequest
+                var myXhr = $.ajaxSettings.xhr();
+                if (myXhr.upload) { // Check if upload property exists
+                    // Progress code if you want
+                }
+                return myXhr;
+            }
+        }).done(function (response) {
+            alert('Done');
+        }).fail(function (data) {
+            alert('Errors');
+        });
+
+
+    });
+
+    </script>
+}
