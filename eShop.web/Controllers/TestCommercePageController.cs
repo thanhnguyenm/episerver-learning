@@ -40,7 +40,13 @@ namespace eShop.web.Controllers
             newcatalog.DefaultLanguage = "en";
             newcatalog.WeightBase = "Pounds";
 
+            var catalogRef = repository.Save(newcatalog, SaveAction.Publish, EPiServer.Security.AccessLevel.NoAccess);
+
+            // add language fr
+            newcatalog = repository.Get<CatalogContent>(catalogRef).CreateWritableClone<CatalogContent>();
+            newcatalog.CatalogLanguages.Add("fr");
             repository.Save(newcatalog, SaveAction.Publish, EPiServer.Security.AccessLevel.NoAccess);
+
 
             return Json(newcatalog.CatalogId);
         }

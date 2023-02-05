@@ -546,11 +546,19 @@
     <Compile Include="Business\Services\TestService2.cs" />
     <Compile Include="Business\Validators\CategoryBannerTypeVaidator.cs" />
     <Compile Include="Business\Validators\StartPageValidator.cs" />
+    <Compile Include="Commerce\Catalogs\CatalogContentTypeSample.cs" />
+    <Compile Include="Commerce\Initialization\InventoryUpdateEvent.cs" />
+    <Compile Include="Commerce\Products\ImageFile.cs" />
+    <Compile Include="Commerce\Products\FashionProduct.cs" />
+    <Compile Include="Commerce\Products\SampleProduct4.cs" />
+    <Compile Include="Commerce\Seo\ExtendUniqueSeoGenerator.cs" />
     <Compile Include="Controllers\BaseBlockController.cs" />
     <Compile Include="Controllers\BaseFormBlockController.cs" />
     <Compile Include="Controllers\BasePartialController.cs" />
+    <Compile Include="Controllers\BlogPageController.cs" />
     <Compile Include="Controllers\CategoryBannerBlockController.cs" />
     <Compile Include="Controllers\ColourBlockController.cs" />
+    <Compile Include="Controllers\ContactPageController.cs" />
     <Compile Include="Controllers\CustomAdminGlobalMainPageController.cs" />
     <Compile Include="Controllers\CustomCmsGlobalHangfireController.cs" />
     <Compile Include="Controllers\CustomWidgetPageController.cs" />
@@ -559,7 +567,9 @@
     <Compile Include="Controllers\DemoFormPageController.cs" />
     <Compile Include="Controllers\LoginControlBlockController.cs" />
     <Compile Include="Controllers\BasePageController.cs" />
+    <Compile Include="Controllers\NewProductBlockController.cs" />
     <Compile Include="Controllers\PreviewController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RssFeedController.cs" />
     <Compile Include="Controllers\ShippingAddressBlockController.cs" />
     <Compile Include="Controllers\StartPageController.cs" />
@@ -572,9 +582,11 @@
     <Compile Include="Global.cs" />
     <Compile Include="Helpers\CategorizableExtensions.cs" />
     <Compile Include="Helpers\ContentExtensions.cs" />
+    <Compile Include="Helpers\CurrencyHelper.cs" />
     <Compile Include="Helpers\FileHelper.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="Helpers\NotificationCentre.cs" />
+    <Compile Include="Helpers\ProductContentHelper.cs" />
     <Compile Include="Helpers\StringExtensions.cs" />
     <Compile Include="Helpers\UrlHelpers.cs" />
     <Compile Include="Infrastructure\EPiServerCommerceInitializationModule.cs" />
@@ -583,6 +595,7 @@
     <Compile Include="Models\Blocks\HiddenBlock.cs" />
     <Compile Include="Models\Blocks\HotTrendBlock.cs" />
     <Compile Include="Models\Blocks\LoginControlBlock.cs" />
+    <Compile Include="Models\Blocks\NewProductBlock.cs" />
     <Compile Include="Models\Blocks\ShippingAddress.cs" />
     <Compile Include="Models\Blocks\ShippingAddressBlock.cs" />
     <Compile Include="Models\Blocks\SiteBlockData.cs" />
@@ -591,6 +604,8 @@
     <Compile Include="Models\Media\GenericMedia.cs" />
     <Compile Include="Models\Media\ImageFile.cs" />
     <Compile Include="Models\Media\VideoFile.cs" />
+    <Compile Include="Models\Pages\BlogPage.cs" />
+    <Compile Include="Models\Pages\ContactPage.cs" />
     <Compile Include="Models\Pages\ContainerPage.cs" />
     <Compile Include="Models\Pages\CustomWidgetPage.cs" />
     <Compile Include="Models\Pages\DemoFormPage.cs" />
@@ -628,6 +643,7 @@
       <DependentUpon>AdminImagePicker.ascx</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\BlockViewModel.cs" />
+    <Compile Include="ViewModels\CatalogContentViewModel.cs" />
     <Compile Include="ViewModels\CatalogCreateModel.cs" />
     <Compile Include="ViewModels\ConditionalLink.cs" />
     <Compile Include="ViewModels\ContentRenderingErrorModel.cs" />
@@ -637,13 +653,16 @@
     <Compile Include="ViewModels\LoginControlBlockViewModel.cs" />
     <Compile Include="ViewModels\LoginModel.cs" />
     <Compile Include="ViewModels\MenuItemModel.cs" />
+    <Compile Include="ViewModels\NewProductViewModel.cs" />
     <Compile Include="ViewModels\Notification.cs" />
     <Compile Include="ViewModels\PageViewModel.cs" />
     <Compile Include="ViewModels\PreviewModel.cs" />
+    <Compile Include="ViewModels\ProductContentViewModel.cs" />
+    <Compile Include="ViewModels\ProductPageViewModel.cs" />
     <Compile Include="ViewModels\RssActionResult.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Business\Commerce\" />
+    <Folder Include="Commerce\Services\" />
     <Folder Include="Views\BaseBlock\" />
     <Folder Include="Views\BaseFormBlock\" />
     <Folder Include="Views\CustomAdminMainPage\" />
@@ -870,6 +889,11 @@
     <Content Include="Views\CustomCmsGlobalHangfire\Index.cshtml" />
     <Content Include="Views\UploadFilePage\Index.cshtml" />
     <Content Include="Views\TestCommercePage\Index.cshtml" />
+    <Content Include="Views\NewProductBlock\Index.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Shared\_ProductLayout.cshtml" />
+    <Content Include="Views\ContactPage\Index.cshtml" />
+    <Content Include="Views\BlogPage\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

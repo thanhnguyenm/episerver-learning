@@ -39,6 +39,7 @@ namespace eShop.web.Controllers
             this.testService2 = ServiceLocator.Current.GetInstance<ITestService2>();
             this.contentVersionRepository = ServiceLocator.Current.GetInstance<IContentVersionRepository>();
             this.contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+            this.contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
         }
 
         // GET: StartPage
@@ -74,6 +75,9 @@ namespace eShop.web.Controllers
 
             // cache checking
             var children = contentLoader.GetChildren<SitePageData>(currentPage.ContentLink);
+
+            // get all products
+
             
             return View(model);
         }

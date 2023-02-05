@@ -53,7 +53,7 @@ namespace eShop.web.Models.Pages
         public virtual CategoryBannerBlock MainCategoryBanner { get; set; }
 
         [Display(
-            Name = "Large Content Area",
+            Name = "Small Banner Content Area",
             GroupName = SystemTabNames.Content,
             Order = 331)]
         [CultureSpecific]
