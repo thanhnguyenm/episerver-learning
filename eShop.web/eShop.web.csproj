@@ -555,6 +555,8 @@
     <Compile Include="Controllers\BaseBlockController.cs" />
     <Compile Include="Controllers\BaseFormBlockController.cs" />
     <Compile Include="Controllers\BasePartialController.cs" />
+    <Compile Include="Controllers\BigBannerBlockController.cs" />
+    <Compile Include="Controllers\BigBannerLinkBlockController.cs" />
     <Compile Include="Controllers\BlogPageController.cs" />
     <Compile Include="Controllers\CategoryBannerBlockController.cs" />
     <Compile Include="Controllers\ColourBlockController.cs" />
@@ -567,11 +569,13 @@
     <Compile Include="Controllers\DemoFormPageController.cs" />
     <Compile Include="Controllers\LoginControlBlockController.cs" />
     <Compile Include="Controllers\BasePageController.cs" />
+    <Compile Include="Controllers\LoginPageController.cs" />
     <Compile Include="Controllers\NewProductBlockController.cs" />
     <Compile Include="Controllers\PreviewController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RssFeedController.cs" />
     <Compile Include="Controllers\ShippingAddressBlockController.cs" />
+    <Compile Include="Controllers\SpecialOfferBlockController.cs" />
     <Compile Include="Controllers\StartPageController.cs" />
     <Compile Include="Controllers\StartPagePartialController.cs" />
     <Compile Include="Controllers\TestCommercePageController.cs" />
@@ -590,6 +594,8 @@
     <Compile Include="Helpers\StringExtensions.cs" />
     <Compile Include="Helpers\UrlHelpers.cs" />
     <Compile Include="Infrastructure\EPiServerCommerceInitializationModule.cs" />
+    <Compile Include="Models\Blocks\BigBannerBlock.cs" />
+    <Compile Include="Models\Blocks\BigBannerLinkBlock.cs" />
     <Compile Include="Models\Blocks\CategoryBannerBlock.cs" />
     <Compile Include="Models\Blocks\ColourBlock.cs" />
     <Compile Include="Models\Blocks\HiddenBlock.cs" />
@@ -600,6 +606,7 @@
     <Compile Include="Models\Blocks\ShippingAddressBlock.cs" />
     <Compile Include="Models\Blocks\SiteBlockData.cs" />
     <Compile Include="Models\Blocks\SiteLogoTypeBlock.cs" />
+    <Compile Include="Models\Blocks\SpecialOfferBlock.cs" />
     <Compile Include="Models\Commerce\SampleCatalog.cs" />
     <Compile Include="Models\Media\GenericMedia.cs" />
     <Compile Include="Models\Media\ImageFile.cs" />
@@ -610,6 +617,7 @@
     <Compile Include="Models\Pages\CustomWidgetPage.cs" />
     <Compile Include="Models\Pages\DemoFormPage.cs" />
     <Compile Include="Models\Pages\IContainerPage.cs" />
+    <Compile Include="Models\Pages\LoginPage.cs" />
     <Compile Include="Models\Pages\SitePageData.cs" />
     <Compile Include="Models\Pages\StandardPage.cs" />
     <Compile Include="Models\Pages\StartPage.cs" />
@@ -660,6 +668,7 @@
     <Compile Include="ViewModels\ProductContentViewModel.cs" />
     <Compile Include="ViewModels\ProductPageViewModel.cs" />
     <Compile Include="ViewModels\RssActionResult.cs" />
+    <Compile Include="ViewModels\SpecialOfferViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commerce\Services\" />
@@ -718,6 +727,7 @@
     <Content Include="Static\css\elegant-icons.css" />
     <Content Include="Static\css\font-awesome.min.css" />
     <Content Include="Static\css\jquery-ui.min.css" />
+    <Content Include="Static\css\loginstyle.css" />
     <Content Include="Static\css\magnific-popup.css" />
     <Content Include="Static\css\owl.carousel.min.css" />
     <Content Include="Static\css\slicknav.min.css" />
@@ -894,6 +904,10 @@
     <Content Include="Views\Shared\_ProductLayout.cshtml" />
     <Content Include="Views\ContactPage\Index.cshtml" />
     <Content Include="Views\BlogPage\Index.cshtml" />
+    <Content Include="Views\BigBannerBlock\Index.cshtml" />
+    <Content Include="Views\BigBannerLinkBlock\Index.cshtml" />
+    <Content Include="Views\SpecialOfferBlock\Index.cshtml" />
+    <Content Include="Views\LoginPage\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

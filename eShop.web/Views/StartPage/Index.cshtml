@@ -36,9 +36,20 @@
 
 @*@Html.Partial("_Products")*@
 
-@Html.Partial("_Banner")
+@*@Html.Partial("_Banner")*@
+@Html.PropertyFor(x => x.CurrentPage.BigBannerContentArea)
 
-@Html.Partial("_Trends")
+
+@*@Html.Partial("_Trends")*@
+
+<!-- Trend Section Begin -->
+<section class="trend spad">
+    <div class="container">
+        @Html.PropertyFor(x => x.CurrentPage.SpecialOfferContentArea, new { CssClass = "row", ChildrenCssClass = "col-lg-4 col-md-4 col-sm-6" })
+    </div>
+</section>
+<!-- Trend Section End -->
+
 
 @Html.Partial("_Services")
 

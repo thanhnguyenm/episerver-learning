@@ -1,0 +1,14 @@
+﻿@model  BlockViewModel<eShop.web.Models.Blocks.BigBannerBlock>
+<!-- Banner Section Begin -->
+<section class="banner set-bg" data-setbg="@Url.ContentUrl(Model.CurrentBlock.Image)">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-xl-7 col-lg-8 m-auto">
+                @Html.PropertyFor(x => x.CurrentBlock.LinksContentArea, new { CssClass = "banner__slider owl-carousel" })
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Banner Section End -->

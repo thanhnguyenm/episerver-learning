@@ -18,16 +18,20 @@ namespace eShop.web.ViewModels
         {
             CurrentContent = currentContent;
             CurrentContentModel = currentContent.ToModel(language);
+            RelatedProducts = currentContent.RelatedProducts(language);
             Language = language.Name;
 
             var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
             StartPageViewModel = PageViewModel.Create(contentLoader.Get<StartPage>(SiteDefinition.Current.StartPage));
+
+
         }
 
         public ProductContent CurrentContent { get; }
         public string Language { get; }
 
         public ProductContentViewModel CurrentContentModel { get; }
+        public List<ProductContentViewModel> RelatedProducts { get; }
 
         public IPageViewModel<StartPage> StartPageViewModel { get; }
     }

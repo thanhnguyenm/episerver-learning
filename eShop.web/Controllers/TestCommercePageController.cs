@@ -50,5 +50,8 @@ namespace eShop.web.Controllers
 
             return Json(newcatalog.CatalogId);
         }
+
+        
     }
+
 }

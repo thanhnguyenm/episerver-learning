@@ -1,5 +1,6 @@
 using System.Web.Routing;
 using EPiServer.Commerce.Catalog.ContentTypes;
+using EPiServer.Commerce.Catalog.Linking;
 using EPiServer.Commerce.Routing;
 using EPiServer.Framework;
 using EPiServer.Framework.Initialization;
@@ -14,10 +15,14 @@ namespace eShop.web.Infrastructure
     {
         public void Initialize(InitializationEngine context)
         {
-            CatalogRouteHelper.MapDefaultHierarchialRouter(RouteTable.Routes, false);
+            //CatalogRouteHelper.MapDefaultHierarchialRouter(RouteTable.Routes, false);
 
-            //CatalogRouteHelper.MapDefaultHierarchialRouter(RouteTable.Routes, true);
-            //CatalogRouteHelper.SetupSeoUriPermanentRedirect();
+            CatalogRouteHelper.MapDefaultHierarchialRouter(RouteTable.Routes, true);
+            CatalogRouteHelper.SetupSeoUriPermanentRedirect();
+
+            // Create new association group
+            var groupAsoDefRepo = context.Locate.Advanced.GetInstance<GroupDefinitionRepository<AssociationGroupDefinition>>();
+            groupAsoDefRepo.Add(new AssociationGroupDefinition { Name = "CrossSell" });
         }
 
         public void Preload(string[] parameters) { }

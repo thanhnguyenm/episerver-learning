@@ -1,0 +1,57 @@
+﻿@model eShop.web.ViewModels.PageViewModel<eShop.web.Models.Pages.LoginPage>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ashion">
+    <meta name="keywords" content="Ashion">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ashion | Login</title>
+    <link rel="shortcut icon" href="@Url.Content("~/favicon.ico")" type="image/x-icon" />
+    @Html.CanonicalLink()
+    @Html.AlternateLinks()
+    <link href="~/Static/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="~/Static/js/bootstrap.min.js"></script>
+    <script src="~/Static/js/jquery-3.4.1.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <link href="~/Static/css/loginstyle.css" rel="stylesheet" id="bootstrap-css">
+</head>
+<body>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            @using (Html.BeginForm("Login", "LoginPage", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                @Html.Hidden("currentPageLink", Model.CurrentPage.ContentLink)
+
+                <!-- Tabs Titles -->
+                <!-- Icon -->
+                <div class="fadeIn first">
+                    <img src="~/Static/img/user.png" style="width: 150px" id="icon" alt="User Icon" />
+                </div>
+
+                <!-- Login Form -->
+                <input type="text" id="Username" class="fadeIn second" name="Username" placeholder="login">
+                <input type="password" id="Password" class="fadeIn third" name="Password" placeholder="password">
+                <input type="submit" class="fadeIn fourth" value="Log In">
+
+                <div class="text-warning">
+                    @Html.ValidationSummary()
+                </div>
+
+                <!-- Remind Passowrd -->
+                <div id="formFooter">
+                    <a class="underlineHover" href="#">Forgot Password?</a>
+                </div>
+
+            }
+
+
+        </div>
+    </div>
+</body>
+</html>

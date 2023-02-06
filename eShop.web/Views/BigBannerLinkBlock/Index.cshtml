@@ -1,0 +1,9 @@
+﻿@model  BlockViewModel<eShop.web.Models.Blocks.BigBannerLinkBlock>
+
+<div class="banner__item">
+    <div class="banner__text">
+        <span>@Model.CurrentBlock.SubTitle</span>
+        <h1>@Model.CurrentBlock.MainTitle</h1>
+        <a href="@Url.ContentUrl(Model.CurrentBlock.Url)">@Model.CurrentBlock.LinkText</a>
+    </div>
+</div>

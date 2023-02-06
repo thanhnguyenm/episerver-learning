@@ -62,5 +62,24 @@ namespace eShop.web.Models.Pages
         [MaxItemsAllowedAtribute(4)]
         [DisableInvalidDisplayOptionsAttribute]
         public virtual ContentArea SmallCategoryBannerContentArea { get; set; }
+
+        [Display(
+            Name = "Big Banner Content Area",
+            GroupName = SystemTabNames.Content,
+            Order = 332)]
+        [CultureSpecific]
+        [AllowedTypes(new[] { typeof(BigBannerBlock) })]
+        [MaxItemsAllowedAtribute(1)]
+        public virtual ContentArea BigBannerContentArea { get; set; }
+
+
+        [Display(
+            Name = "Special Offer Content Area",
+            GroupName = SystemTabNames.Content,
+            Order = 333)]
+        [CultureSpecific]
+        [AllowedTypes(new[] { typeof(SpecialOfferBlock) })]
+        [MaxItemsAllowedAtribute(3)]
+        public virtual ContentArea SpecialOfferContentArea { get; set; }
     }
 }

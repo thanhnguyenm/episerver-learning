@@ -1,6 +1,18 @@
 ﻿@using EPiServer.Web
 @using eShop.web.Helpers
+@using EPiServer;
+@using EPiServer.ServiceLocation;
 @model eShop.web.ViewModels.IPageViewModel<eShop.web.Models.Pages.SitePageData>
+@{ 
+    bool isLoggedin = false;
+    if (Request.Cookies.Get(FormsAuthentication.FormsCookieName) != null)
+    {
+        isLoggedin = true;
+    }
+
+    var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+    var loginPage = contentLoader.GetChildren<LoginPage>(SiteDefinition.Current.StartPage).FirstOrDefault();
+}
 <!-- Header Section Begin -->
 <header class="header">
     <div class="container-fluid">
@@ -40,8 +52,16 @@
             <div class="col-lg-3">
                 <div class="header__right">
                     <div class="header__right__auth">
-                        <a href="#">Login</a>
-                        <a href="#">Register</a>
+                        @if (!isLoggedin)
+                        {
+                            <a href="@Url.ContentUrl(loginPage.ContentLink)">Login</a>
+                            <a href="#">Register</a>
+                        }
+                        else
+                        {
+                            <a href="/LoginPage/Logout">Logout</a>
+                        }
+
                     </div>
                     <ul class="header__right__widget">
                         <li><span class="icon_search search-switch"></span></li>
