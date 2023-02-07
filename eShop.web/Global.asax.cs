@@ -25,7 +25,6 @@ namespace eShop.web
             RouteTable.Routes.MapRoute("defaultRoute", "{controller}/{action}");
         }
 
-
         /// <summary>
         /// When URLs donot contain language code, we can cache content by language in request (from browser)
         /// follow Episerver config

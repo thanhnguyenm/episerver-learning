@@ -11,6 +11,7 @@ namespace eShop.web.ViewModels
         public string ProductName { get; set; }
         public decimal MinPrice { get; set; }
         public decimal MaxPrice { get; set; }
+        public decimal Quantity { get; set; }
         public string Image { get; set; }
         public string ProductURL { get; set; }
         public List<string> DetailImages { get; set; }

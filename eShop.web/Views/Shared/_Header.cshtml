@@ -5,9 +5,11 @@
 @model eShop.web.ViewModels.IPageViewModel<eShop.web.Models.Pages.SitePageData>
 @{ 
     bool isLoggedin = false;
+    var username = string.Empty;
     if (Request.Cookies.Get(FormsAuthentication.FormsCookieName) != null)
     {
         isLoggedin = true;
+        username = FormsAuthentication.Decrypt(Request.Cookies.Get(FormsAuthentication.FormsCookieName).Value).Name;
     }
 
     var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
@@ -59,7 +61,7 @@
                         }
                         else
                         {
-                            <a href="/LoginPage/Logout">Logout</a>
+                            <span>Hello, @username!</span> <a href="/LoginPage/Logout">Logout</a>
                         }
 
                     </div>
