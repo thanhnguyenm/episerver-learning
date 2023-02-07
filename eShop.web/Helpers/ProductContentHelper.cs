@@ -29,6 +29,11 @@ namespace eShop.web.Helpers
             var variants = productContent.GetVariants();
 
             var variantContents = contentLoader.GetItems(variants, language);
+            model.Variants = variantContents.Select(x => new ProductContentViewModel
+            {
+                Code = (x as VariationContent).Code
+            }).ToList();
+
             var prices = variantContents.SelectMany(x => (x as VariationContent).GetPrices());
 
             if (prices != null && prices.Any())

@@ -7,8 +7,10 @@ using EPiServer.Web.Routing;
 using eShop.web.Business.Filters;
 using eShop.web.Models.Pages;
 using eShop.web.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 
@@ -35,7 +37,23 @@ namespace eShop.web.Controllers
 
             if (ModelState.IsValid && Membership.ValidateUser(model.Username, model.Password))
             {
-                FormsAuthentication.SetAuthCookie(model.Username, true);
+                FormsAuthenticationTicket ticket = new FormsAuthenticationTicket
+                (
+                    1,
+                    model.Username,
+                    DateTime.Now,
+                    DateTime.Now.AddMinutes(30),
+                    false,
+                    "Some User Data",
+                    FormsAuthentication.FormsCookiePath
+                );
+
+                // Encrypt the ticket.
+                string encTicket = FormsAuthentication.Encrypt(ticket);
+                // Create the cookie.
+                Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
+
+                //FormsAuthentication.SetAuthCookie(model.Username, true);
                 return Redirect("/");
             }
             else

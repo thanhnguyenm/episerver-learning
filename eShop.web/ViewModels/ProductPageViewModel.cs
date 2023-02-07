@@ -25,6 +25,7 @@ namespace eShop.web.ViewModels
             StartPageViewModel = PageViewModel.Create(contentLoader.Get<StartPage>(SiteDefinition.Current.StartPage));
 
 
+
         }
 
         public ProductContent CurrentContent { get; }

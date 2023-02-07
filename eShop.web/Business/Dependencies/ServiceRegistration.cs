@@ -20,6 +20,7 @@ namespace eShop.web.Business.Dependencies
             services.AddScoped<IContentRenderer, ErrorHandlingContentRenderer>();
             services.AddScoped<IFeedService, FeedService>();
             services.AddStackExchangeRedisExtensions();
+            services.AddSingleton<CookieService>();
 
             //services.AddAzureBlobProvider("Azure", o => CMS 12
             // {

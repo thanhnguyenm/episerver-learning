@@ -1,5 +1,5 @@
 ﻿@model eShop.web.ViewModels.ProductPageViewModel
-@{ 
+@{
     Layout = "~/Views/Shared/_ProductLayout.cshtml";
 }
 <!-- Product Details Section Begin -->
@@ -9,7 +9,7 @@
             <div class="col-lg-6">
                 <div class="product__details__pic">
                     <div class="product__details__pic__left product__thumb nice-scroll">
-                        @for (int i = 0; i <  Model.CurrentContentModel.DetailImages.Count; i++)
+                        @for (int i = 0; i < Model.CurrentContentModel.DetailImages.Count; i++)
                         {
                             <a class="pt active" href="#product-@i">
                                 <img src="@Model.CurrentContentModel.DetailImages[i]" alt="">
@@ -37,24 +37,36 @@
                         <i class="fa fa-star"></i>
                         <span>( 138 reviews )</span>
                     </div>
-                    <div class="product__details__price">@Model.CurrentContentModel.MinPrice.CurrenyFormat() <span>@Model.CurrentContentModel.MaxPrice.CurrenyFormat()</span></div>
+                    <div class="product__details__price">@Model.CurrentContentModel.MinPrice.CurrenyFormat() - @Model.CurrentContentModel.MaxPrice.CurrenyFormat()</div>
                     <p>
                         Nemo enim ipsam voluptatem quia aspernatur aut odit aut loret fugit, sed quia consequuntur
                         magni lores eos qui ratione voluptatem sequi nesciunt.
                     </p>
-                    <div class="product__details__button">
-                        <div class="quantity">
-                            <span>Quantity:</span>
-                            <div class="pro-qty">
-                                <input type="text" value="1">
+                    @foreach (var varirant in Model.CurrentContentModel.Variants)
+                    {
+                        using (Html.BeginForm("AddToCart", "Cart", FormMethod.Post, new { data_container = "MiniCart" }))
+                        {
+                            <div class="product__details__button">
+                                <div class="quantity">
+                                    <span>SKU: @varirant.Code</span>
+                                    @Html.Hidden("code", varirant.Code)
+                                    @*<div class="pro-qty">
+                            <input type="text" value="1">
+                        </div>*@
+                                </div>
+                                <button type="submit" class="cart-btn jsAddToCartSubmit"><span class="icon_bag_alt"></span> Add to cart</button>
+                                @*<ul>
+                        <li><a href="#"><span class="icon_heart_alt"></span></a></li>
+                        <li><a href="#"><span class="icon_adjust-horiz"></span></a></li>
+                    </ul>*@
                             </div>
-                        </div>
-                        <a href="#" class="cart-btn"><span class="icon_bag_alt"></span> Add to cart</a>
-                        <ul>
-                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                            <li><a href="#"><span class="icon_adjust-horiz"></span></a></li>
-                        </ul>
+                        }
+                    }
+                    <div id="CartWarningMessage" class="col-md-5 col-xs-12 alert alert-danger pull-right" hidden>
+                        <button type="button" class="close" data-hide="alert">&times;</button>
+                        <span class="warning-message"></span>
                     </div>
+
                     <div class="product__details__widget">
                         <ul>
                             <li>
@@ -219,3 +231,40 @@
     </div>
 </section>
 <!-- Product Details Section End -->
+@section scripts{
+    <script>
+        const addCartItem = function (e) {
+
+            e.preventDefault();
+            var form = $(this).closest("form");
+            var formContainer = $("#" + form.data("container"));
+            var skuCode = $("#code", form).val();
+
+            $("#CartWarningMessage").hide()
+            $(".warning-message", $("#CartWarningMessage")).html("");
+
+            $.ajax({
+                type: "POST",
+                url: form[0].action,
+                data: { code: skuCode },
+                success: function (result) {
+
+                    formContainer.html($(result));
+                    //$('.cartItemCountLabel', formContainer.parent()).text($('#CartItemCount', formContainer).val());
+                    //$('.cartTotalAmountLabel', formContainer.parent()).text($('#CartTotalAmount', formContainer).val());
+
+                    //formContainer.change();
+                    //formContainer.replaceAll($(result));
+                },
+                error: function (xhr, status, error) {
+                    $(".warning-message", $("#CartWarningMessage")).html(xhr.statusText);
+                    $("#CartWarningMessage").show();
+                }
+            });
+        };
+
+        $(document).on('click', '.jsAddToCartSubmit', addCartItem)
+
+
+    </script>
+}
