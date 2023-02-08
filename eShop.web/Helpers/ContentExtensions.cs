@@ -1,7 +1,11 @@
-﻿using EPiServer.Core;
+﻿using EPiServer;
+using EPiServer.Commerce.Catalog.ContentTypes;
+using EPiServer.Commerce.Catalog.Linking;
+using EPiServer.Core;
 using EPiServer.Filters;
 using EPiServer.Framework.Web;
 using EPiServer.ServiceLocation;
+using EPiServer.Web.Routing;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -42,6 +46,29 @@ namespace eShop.web.Helpers
                 return true;
             }
             return page.VisibleInMenu;
+        }
+
+        public static string GetUrl(this EntryContentBase entry, IRelationRepository relationRepository, UrlResolver urlResolver) => GetUrl(entry, relationRepository, urlResolver, null);
+
+        public static string GetUrl(this EntryContentBase entry, IRelationRepository relationRepository, UrlResolver urlResolver, string language)
+        {
+            var productLink = entry is VariationContent ?
+                entry.GetParentProducts(relationRepository).FirstOrDefault() :
+                entry.ContentLink;
+
+            if (productLink == null)
+            {
+                return string.Empty;
+            }
+
+            var urlBuilder = string.IsNullOrEmpty(language) ? new UrlBuilder(urlResolver.GetUrl(productLink)) : new UrlBuilder(urlResolver.GetUrl(productLink, language));
+
+            if (entry.Code != null)
+            {
+                urlBuilder.QueryCollection.Add("variationCode", entry.Code);
+            }
+
+            return urlBuilder.ToString();
         }
     }
 }
