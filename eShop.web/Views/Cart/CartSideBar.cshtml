@@ -1,0 +1,46 @@
+﻿@model MiniCartViewModel
+@{ 
+    var lineItems = Model.Shipments.SelectMany(x => x.CartItems).ToList();
+}
+<div class="checkout__order">
+    <h5>Your order</h5>
+    <div class="checkout__order__product">
+        <ul>
+            <li>
+                <span class="top__text">Product</span>
+                <span class="top__text__right">Total</span>
+            </li>
+            @for (int id = 0; id < lineItems.Count; id++)
+            {
+                <li>@(id+1). @lineItems[id].DisplayName <span>@lineItems[id].PlacedPrice.Amount.CurrenyFormat()</span></li>
+            }
+        </ul>
+    </div>
+    <div class="checkout__order__total">
+        <ul>
+            <li>Total <span>@Model.Total.CurrenyFormat()</span></li>
+        </ul>
+    </div>
+    <div class="checkout__order__widget">
+        <label for="o-acc">
+            Create an acount?
+            <input type="checkbox" id="o-acc">
+            <span class="checkmark"></span>
+        </label>
+        <p>
+            Create am acount by entering the information below. If you are a returing customer
+            login at the top of the page.
+        </p>
+        <label for="check-payment">
+            Cheque payment
+            <input type="checkbox" id="check-payment">
+            <span class="checkmark"></span>
+        </label>
+        <label for="paypal">
+            PayPal
+            <input type="checkbox" id="paypal">
+            <span class="checkmark"></span>
+        </label>
+    </div>
+    <button type="submit" class="site-btn">Place oder</button>
+</div>

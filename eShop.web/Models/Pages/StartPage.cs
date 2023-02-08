@@ -30,6 +30,9 @@ namespace eShop.web.Models.Pages
         [Display(Name = "Search page", GroupName = Global.GroupNames.SiteSettings, Order = 200)]
         public virtual PageReference SearchPageLink { get; set; }
 
+        [Display(Name = "Checkout page", GroupName = Global.GroupNames.SiteSettings, Order = 201)]
+        public virtual PageReference CheckoutPageLink { get; set; }
+
         // --Content
 
         [Display(

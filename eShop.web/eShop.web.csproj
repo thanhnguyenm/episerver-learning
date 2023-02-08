@@ -494,6 +494,10 @@
     <Compile Include="Business\Filters\ExportModelStateToTempDataFilter.cs" />
     <Compile Include="Business\Filters\ImportModelStateFromTempDataFilter.cs" />
     <Compile Include="Business\Filters\HangFireDashboardAttribute.cs" />
+    <Compile Include="Business\Filters\LocalizedDisplayAttribute.cs" />
+    <Compile Include="Business\Filters\LocalizedEmailAttribute.cs" />
+    <Compile Include="Business\Filters\LocalizedRegularExpressionAttribute.cs" />
+    <Compile Include="Business\Filters\LocalizedRequiredAttribute.cs" />
     <Compile Include="Business\Filters\MaxItemsAllowedAtribute.cs" />
     <Compile Include="Business\Filters\ModelStateTempDataTransferFilter.cs" />
     <Compile Include="Business\CacheBusting\CdnMediaHandler.cs" />
@@ -561,6 +565,7 @@
     <Compile Include="Controllers\BlogPageController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryBannerBlockController.cs" />
+    <Compile Include="Controllers\CheckoutPageController.cs" />
     <Compile Include="Controllers\ColourBlockController.cs" />
     <Compile Include="Controllers\ContactPageController.cs" />
     <Compile Include="Controllers\CustomAdminGlobalMainPageController.cs" />
@@ -587,6 +592,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Global.cs" />
+    <Compile Include="Helpers\AssessContainerExtensions.cs" />
     <Compile Include="Helpers\CartExtensions.cs" />
     <Compile Include="Helpers\CategorizableExtensions.cs" />
     <Compile Include="Helpers\ContentExtensions.cs" />
@@ -611,11 +617,19 @@
     <Compile Include="Models\Blocks\SiteBlockData.cs" />
     <Compile Include="Models\Blocks\SiteLogoTypeBlock.cs" />
     <Compile Include="Models\Blocks\SpecialOfferBlock.cs" />
+    <Compile Include="Models\Commerce\AddressModel.cs" />
+    <Compile Include="Models\Commerce\CartItemViewModel.cs" />
+    <Compile Include="Models\Commerce\CountryRegionViewModel.cs" />
+    <Compile Include="Models\Commerce\CountryViewModel.cs" />
+    <Compile Include="Models\Commerce\IProductModel.cs" />
     <Compile Include="Models\Commerce\SampleCatalog.cs" />
+    <Compile Include="Models\Commerce\ShippingMethodInfoModel.cs" />
+    <Compile Include="Models\Commerce\ShippingMethodViewModel.cs" />
     <Compile Include="Models\Media\GenericMedia.cs" />
     <Compile Include="Models\Media\ImageFile.cs" />
     <Compile Include="Models\Media\VideoFile.cs" />
     <Compile Include="Models\Pages\BlogPage.cs" />
+    <Compile Include="Models\Pages\CheckoutPage.cs" />
     <Compile Include="Models\Pages\ContactPage.cs" />
     <Compile Include="Models\Pages\ContainerPage.cs" />
     <Compile Include="Models\Pages\CustomWidgetPage.cs" />
@@ -657,6 +671,7 @@
     <Compile Include="ViewModels\BlockViewModel.cs" />
     <Compile Include="ViewModels\CatalogContentViewModel.cs" />
     <Compile Include="ViewModels\CatalogCreateModel.cs" />
+    <Compile Include="ViewModels\CheckoutViewModel.cs" />
     <Compile Include="ViewModels\ConditionalLink.cs" />
     <Compile Include="ViewModels\ContentRenderingErrorModel.cs" />
     <Compile Include="ViewModels\IBlockViewModel.cs" />
@@ -673,14 +688,16 @@
     <Compile Include="ViewModels\ProductContentViewModel.cs" />
     <Compile Include="ViewModels\ProductPageViewModel.cs" />
     <Compile Include="ViewModels\RssActionResult.cs" />
+    <Compile Include="ViewModels\ShipmentViewModel.cs" />
     <Compile Include="ViewModels\SpecialOfferViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commerce\Services\" />
+    <Folder Include="lang\" />
     <Folder Include="Views\BaseBlock\" />
     <Folder Include="Views\BaseFormBlock\" />
-    <Folder Include="Views\Cart\" />
     <Folder Include="Views\CustomAdminMainPage\" />
+    <Folder Include="Views\Header\" />
     <Folder Include="Views\RssFeed\" />
     <Folder Include="Views\StartPagePartial\" />
   </ItemGroup>
@@ -914,7 +931,9 @@
     <Content Include="Views\BigBannerLinkBlock\Index.cshtml" />
     <Content Include="Views\SpecialOfferBlock\Index.cshtml" />
     <Content Include="Views\LoginPage\Index.cshtml" />
-    <Content Include="Views\Header\CartMini.cshtml" />
+    <Content Include="Views\Cart\CartMini.cshtml" />
+    <Content Include="Views\CheckoutPage\Index.cshtml" />
+    <Content Include="Views\Cart\CartSideBar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

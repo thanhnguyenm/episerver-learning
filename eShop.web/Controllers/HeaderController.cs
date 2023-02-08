@@ -1,6 +1,9 @@
-﻿using EPiServer.Commerce.Order;
+﻿using EPiServer;
+using EPiServer.Commerce.Order;
 using EPiServer.Core;
 using EPiServer.ServiceLocation;
+using EPiServer.Web;
+using eShop.web.Models.Pages;
 using eShop.web.ViewModels;
 using Mediachase.Commerce.Catalog;
 using Mediachase.Commerce.Customers;
@@ -18,6 +21,11 @@ namespace eShop.web.Controllers
         [ChildActionOnly]
         public ActionResult CartMini(IContent currentContent)
         {
+            var _repoRepository = ServiceLocator.Current.GetInstance<IContentRepository>();
+
+            var startpage = SiteDefinition.Current.StartPage;
+            var startpageContent = _repoRepository.Get<StartPage>(startpage);
+
             var _orderRepository = ServiceLocator.Current.GetInstance<IOrderRepository>();
             var _referenceConverter = ServiceLocator.Current.GetInstance<ReferenceConverter>();
 
@@ -29,7 +37,7 @@ namespace eShop.web.Controllers
 
             var cart = _orderRepository.LoadCart<ICart>(CustomerContext.Current.CurrentContactId, "CartDefault");
 
-            var model = new MiniCartViewModel() { ItemCount = 0 };
+            var model = new MiniCartViewModel() { ItemCount = 0, CheckoutPage = startpageContent.CheckoutPageLink };
             if (cart != null)
             {
                 var lineitems = cart
@@ -40,7 +48,7 @@ namespace eShop.web.Controllers
                 model.ItemCount = itemCount;
             }
             
-            return PartialView(model);
+            return PartialView("~/Views/Cart/CartMini.cshtml", model);
         }
     }
 }
