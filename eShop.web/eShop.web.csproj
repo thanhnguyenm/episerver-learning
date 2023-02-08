@@ -532,6 +532,7 @@
     <Compile Include="Business\ScheduleTasks\PageOrderingScheduledTask.cs" />
     <Compile Include="Business\ScheduleTasks\StandardPageImporterJob.cs" />
     <Compile Include="Business\Search\InternalPageSearchProvider.cs" />
+    <Compile Include="Business\Services\CookieService.cs" />
     <Compile Include="Business\Services\FeedService.cs" />
     <Compile Include="Business\Services\ICacheManager.cs" />
     <Compile Include="Business\Services\IExamplePluginService.cs" />
@@ -558,6 +559,7 @@
     <Compile Include="Controllers\BigBannerBlockController.cs" />
     <Compile Include="Controllers\BigBannerLinkBlockController.cs" />
     <Compile Include="Controllers\BlogPageController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryBannerBlockController.cs" />
     <Compile Include="Controllers\ColourBlockController.cs" />
     <Compile Include="Controllers\ContactPageController.cs" />
@@ -567,6 +569,7 @@
     <Compile Include="Controllers\DebuggingInformationController.cs" />
     <Compile Include="Controllers\DefaultPageController.cs" />
     <Compile Include="Controllers\DemoFormPageController.cs" />
+    <Compile Include="Controllers\HeaderController.cs" />
     <Compile Include="Controllers\LoginControlBlockController.cs" />
     <Compile Include="Controllers\BasePageController.cs" />
     <Compile Include="Controllers\LoginPageController.cs" />
@@ -584,6 +587,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Global.cs" />
+    <Compile Include="Helpers\CartExtensions.cs" />
     <Compile Include="Helpers\CategorizableExtensions.cs" />
     <Compile Include="Helpers\ContentExtensions.cs" />
     <Compile Include="Helpers\CurrencyHelper.cs" />
@@ -661,6 +665,7 @@
     <Compile Include="ViewModels\LoginControlBlockViewModel.cs" />
     <Compile Include="ViewModels\LoginModel.cs" />
     <Compile Include="ViewModels\MenuItemModel.cs" />
+    <Compile Include="ViewModels\MiniCartViewModel.cs" />
     <Compile Include="ViewModels\NewProductViewModel.cs" />
     <Compile Include="ViewModels\Notification.cs" />
     <Compile Include="ViewModels\PageViewModel.cs" />
@@ -674,6 +679,7 @@
     <Folder Include="Commerce\Services\" />
     <Folder Include="Views\BaseBlock\" />
     <Folder Include="Views\BaseFormBlock\" />
+    <Folder Include="Views\Cart\" />
     <Folder Include="Views\CustomAdminMainPage\" />
     <Folder Include="Views\RssFeed\" />
     <Folder Include="Views\StartPagePartial\" />
@@ -908,6 +914,7 @@
     <Content Include="Views\BigBannerLinkBlock\Index.cshtml" />
     <Content Include="Views\SpecialOfferBlock\Index.cshtml" />
     <Content Include="Views\LoginPage\Index.cshtml" />
+    <Content Include="Views\Header\CartMini.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

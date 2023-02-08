@@ -46,6 +46,11 @@ namespace eShop.web.Helpers
             model.Quantity = inventoryRecords.Sum(x => x.PurchaseAvailableQuantity);
             
 
+            model.Variants = variantContents.Select(x => new ProductContentViewModel
+            {
+                Code = (x as VariationContent).Code
+            }).ToList();
+
             var prices = variantContents.SelectMany(x => (x as VariationContent).GetPrices());
 
             if (prices != null && prices.Any())
@@ -68,10 +73,10 @@ namespace eShop.web.Helpers
 
 
             //check cart
-            var cart = new Cart(Guid.NewGuid().ToString(), Guid.NewGuid());
-            OrderGroupWorkflowManager.RunWorkflow(cart, OrderGroupWorkflowManager.CartValidateWorkflowName);
+            //var cart = new Cart(Guid.NewGuid().ToString(), Guid.NewGuid());
+            //OrderGroupWorkflowManager.RunWorkflow(cart, OrderGroupWorkflowManager.CartValidateWorkflowName);
             //or
-            var result = cart.RunWorkflow(OrderGroupWorkflowManager.CartValidateWorkflowName);
+            //var result = cart.RunWorkflow(OrderGroupWorkflowManager.CartValidateWorkflowName);
 
             // request inventory
             //var request = new InventoryRequest(DateTime.UtcNow, requestItems, null);
@@ -139,7 +144,7 @@ namespace eShop.web.Helpers
             return rs;
         }
 
-        private void SendRequests(Shipment shipment, InventoryRequestType requestType)
+        private static void SendRequests(Shipment shipment, InventoryRequestType requestType)
         {
             var inventoryService = ServiceLocator.Current.GetInstance<IInventoryService>();
             var itemIndexStart = 0;

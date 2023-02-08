@@ -37,22 +37,23 @@ namespace eShop.web.Controllers
 
             if (ModelState.IsValid && Membership.ValidateUser(model.Username, model.Password))
             {
-                string userData = "ApplicationSpecific data for this user.";
-                FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1,
+                FormsAuthenticationTicket ticket = new FormsAuthenticationTicket
+                (
+                    1,
                     model.Username,
                     DateTime.Now,
                     DateTime.Now.AddMinutes(30),
-                    true,
-                    userData,
-                    FormsAuthentication.FormsCookiePath);
+                    false,
+                    "Some User Data",
+                    FormsAuthentication.FormsCookiePath
+                );
 
-                //FormsAuthentication.SetAuthCookie(model.Username, true);
                 // Encrypt the ticket.
                 string encTicket = FormsAuthentication.Encrypt(ticket);
-
                 // Create the cookie.
                 Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
 
+                //FormsAuthentication.SetAuthCookie(model.Username, true);
                 return Redirect("/");
             }
             else
