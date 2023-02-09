@@ -13,6 +13,11 @@ namespace eShop.web.Business.Rendering
         public ContainerPageUIDescriptor()
         {
             IconClass = "epi-iconFolder"; // or ContainerPageUIDescriptorModule
+            SortKey = new EPiServer.Shell.Services.Rest.SortColumn
+            {
+                ColumnName = "Name",
+                SortDescending = false
+            };
         }
     }
 }
