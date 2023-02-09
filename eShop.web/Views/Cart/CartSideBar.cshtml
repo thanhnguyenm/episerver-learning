@@ -22,7 +22,7 @@
         </ul>
     </div>
     <div class="checkout__order__widget">
-        <label for="o-acc">
+        @*<label for="o-acc">
             Create an acount?
             <input type="checkbox" id="o-acc">
             <span class="checkmark"></span>
@@ -30,17 +30,20 @@
         <p>
             Create am acount by entering the information below. If you are a returing customer
             login at the top of the page.
-        </p>
-        <label for="check-payment">
-            Cheque payment
-            <input type="checkbox" id="check-payment">
-            <span class="checkmark"></span>
-        </label>
-        <label for="paypal">
+        </p>*@
+        @foreach (var payment in Model.PaymentMethods)
+        {
+        <div>
+            <input type="radio" name="SystemKeyword" value="@payment.SystemKeyword"> @payment.PaymentMethodName
+            @*<span class="checkmark"></span>*@
+        </div>
+        }
+
+        @*<label for="paypal">
             PayPal
             <input type="checkbox" id="paypal">
             <span class="checkmark"></span>
-        </label>
+        </label>*@
     </div>
     <button type="submit" class="site-btn">Place oder</button>
 </div>

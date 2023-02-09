@@ -17,6 +17,7 @@ using Mediachase.Commerce.Customers;
 using Mediachase.Commerce.Markets;
 using Mediachase.Commerce.Orders;
 using Mediachase.Commerce.Orders.Managers;
+using Mediachase.Commerce.Plugins.Payment;
 using Mediachase.Commerce.Pricing;
 using System;
 using System.Collections.Generic;
@@ -168,7 +169,30 @@ namespace eShop.web.Controllers
 
             }
 
+            model.PaymentMethods = GetPaymentMethod();
+
             return PartialView("CartSideBar", model);
+        }
+
+        //get payments
+        public IEnumerable<PaymentMethodViewModel> GetPaymentMethod()
+        {
+            var currentMarket = _currentMarket.GetCurrentMarket().MarketId;
+            var currentLanguage = GetCurrentLanguage().TwoLetterISOLanguageName;
+            //PaymentManager.GetPaymentMethodBySystemName
+            var methods = PaymentManager.GetPaymentMethodsByMarket(currentMarket.Value)
+                .PaymentMethod
+                .Where(x => x.IsActive && currentLanguage.Equals(x.LanguageId, StringComparison.OrdinalIgnoreCase))
+                .OrderBy(x => x.Ordering)
+                .Select(x => new PaymentMethodViewModel
+                {
+                    PaymentMethodId = x.PaymentMethodId,
+                    SystemKeyword = x.SystemKeyword,
+                    PaymentMethodName = x.Name,
+                    IsDefault = x.IsDefault
+                });
+
+            return methods;
         }
 
         [HttpPost]

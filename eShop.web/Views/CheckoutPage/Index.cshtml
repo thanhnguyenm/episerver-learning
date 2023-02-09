@@ -11,7 +11,7 @@
                 </h6>
             </div>
         </div>
-        <form action="#" class="checkout__form">
+        <form  action="@Url.Action("Purchase", "CheckoutPage")" method="post" novalidate  class="checkout__form">
             @Html.HiddenFor(model => model.BillingAddress.Name)
             @Html.HiddenFor(model => model.UseBillingAddressForShipment)
             @Html.HiddenFor(model => model.BillingAddress.DaytimePhoneNumber)

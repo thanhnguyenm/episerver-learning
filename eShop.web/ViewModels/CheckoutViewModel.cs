@@ -8,11 +8,8 @@ using System.Web;
 
 namespace eShop.web.ViewModels
 {
-    public class CheckoutViewModel
+    public class CheckoutViewModel : IPageViewModel<CheckoutPage>
     {
-        public StartPage StartPage { get; set; }
-
-
         /// <summary>
         /// Gets or sets all existing shipments related to the current order.
         /// </summary>
@@ -27,6 +24,13 @@ namespace eShop.web.ViewModels
         /// Gets or sets the payment method associated to the current purchase.
         /// </summary>
         public IPaymentMethod Payment { get; set; }
+
+
+        /// <summary>
+        /// Gets or sets the payment method associated to the current purchase.
+        /// </summary>
+        public string SystemKeyword { get; set; }
+        public Guid PaymentMethodId { get; set; }
 
         /// <summary>
         /// Gets or sets whether the shipping address should be the same as the billing address.
@@ -47,5 +51,11 @@ namespace eShop.web.ViewModels
         /// Gets or sets a list of all existing addresses for the current customer and that can be used for billing and shipment.
         /// </summary>
         public IList<AddressModel> AvailableAddresses { get; set; }
+
+        public CheckoutPage CurrentPage { get; set; }
+        public StartPage StartPage { get; set; }
+        public LayoutViewModel Layout { get; set; }
+
+
     }
 }

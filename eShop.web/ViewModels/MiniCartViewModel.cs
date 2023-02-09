@@ -15,5 +15,6 @@ namespace eShop.web.ViewModels
         public decimal TotalDiscount { get; set; }
 
         public List<ShipmentViewModel> Shipments { get; set; }
+        public IEnumerable<PaymentMethodViewModel> PaymentMethods { get; set; }
     }
 }

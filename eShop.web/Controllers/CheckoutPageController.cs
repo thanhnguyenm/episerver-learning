@@ -4,8 +4,11 @@ using EPiServer.Commerce.Catalog.Linking;
 using EPiServer.Commerce.Order;
 using EPiServer.Core;
 using EPiServer.Framework.DataAnnotations;
+using EPiServer.Framework.Localization;
 using EPiServer.ServiceLocation;
+using EPiServer.Web;
 using EPiServer.Web.Mvc;
+using EPiServer.Web.Mvc.Html;
 using EPiServer.Web.Routing;
 using eShop.web.Business.Services;
 using eShop.web.Helpers;
@@ -43,6 +46,9 @@ namespace eShop.web.Controllers
         IShippingGateway _shippingGateways;
         UrlResolver _urlResolver;
         IRelationRepository _relationRepository;
+        IOrderGroupCalculator _orderGroupCalculator;
+        IPaymentProcessor _paymentProcessor;
+        LocalizationService _localizationService;
 
         public CheckoutPageController()
         {
@@ -58,6 +64,10 @@ namespace eShop.web.Controllers
             _shippingPlugins = ServiceLocator.Current.GetInstance<IShippingPlugin>();
             _shippingGateways = ServiceLocator.Current.GetInstance<IShippingGateway>();
             _relationRepository = ServiceLocator.Current.GetInstance<IRelationRepository>();
+            _urlResolver = ServiceLocator.Current.GetInstance<UrlResolver>();
+            _orderGroupCalculator = ServiceLocator.Current.GetInstance<IOrderGroupCalculator>();
+            _paymentProcessor = ServiceLocator.Current.GetInstance<IPaymentProcessor>();
+            _localizationService = ServiceLocator.Current.GetInstance<LocalizationService>();
         }
 
         public ActionResult Index(CheckoutPage currentPage)
@@ -70,6 +80,7 @@ namespace eShop.web.Controllers
                 //CurrentPage = currentPage,
                 Shipments = new List<ShipmentViewModel>(),
                 //AppliedCouponCodes = new List<string>(),
+                CurrentPage = currentPage,
                 StartPage = _contentLoader.Get<StartPage>(ContentReference.StartPage),
                 AvailableAddresses = new List<AddressModel>(),
                 UseBillingAddressForShipment = true
@@ -125,6 +136,8 @@ namespace eShop.web.Controllers
                        customer.PreferredShippingAddressId == customer.PreferredBillingAddressId);
 
                 model.BillingAddress = CreateBillingAddressModel();
+                model.BillingAddress.CountryOptions = CountryManager.GetCountries().Country.Select(x => new CountryViewModel { Code = x.Code, Name = x.Name });
+
                 model.UseBillingAddressForShipment = useBillingAddressForShipment;
                 model.AvailableAddresses = AddressList();
 
@@ -137,6 +150,111 @@ namespace eShop.web.Controllers
 
             return View(model);
         }
+
+        [HttpPost]
+        public ActionResult Purchase(CheckoutViewModel viewModel)
+        {
+            if (Cart == null || !Cart.GetAllLineItems().Any())
+            {
+                return Redirect(Url.ContentUrl(ContentReference.StartPage));
+            }    
+
+            //address
+            viewModel.BillingAddress.CountryOptions = CountryManager.GetCountries().Country.Select(x => new CountryViewModel { Code = x.Code, Name = x.Name });
+            viewModel.BillingAddress.CountryRegion.RegionOptions = Enumerable.Empty<string>();
+            var issues = _orderValidationService.ValidateOrder(Cart);
+
+            // validate email in billding address
+            //..
+
+            // use shipping same billing address
+            Cart.GetFirstShipment().ShippingAddress = ConvertToAddress(viewModel.BillingAddress, Cart);
+
+            //create payment
+            foreach (var form in Cart.Forms)
+            {
+                form.Payments.Clear();
+            }
+
+            var method = GetPaymentMethod().FirstOrDefault(x => x.SystemKeyword == viewModel.SystemKeyword);
+
+            var total = Cart.GetTotal(_orderGroupCalculator);
+            var payment = CreatePayment(total.Amount, Cart, method.PaymentMethodId, viewModel.SystemKeyword);
+            Cart.AddPayment(payment, _orderGroupFactory);
+            payment.BillingAddress = ConvertToAddress(viewModel.BillingAddress, Cart);
+
+            //process
+            var paymentProcessingResults = Cart.ProcessPayments(_paymentProcessor, _orderGroupCalculator).ToList();
+            if (paymentProcessingResults.Any(r => !r.IsSuccessful))
+            {
+                ModelState.AddModelError("", _localizationService.GetString("/Checkout/Payment/Errors/ProcessingPaymentFailure") + string.Join(", ", paymentProcessingResults.Select(p => p.Message)));
+                return null;
+            }
+
+            var redirectPayment = paymentProcessingResults.FirstOrDefault(r => !string.IsNullOrEmpty(r.RedirectUrl));
+            if (redirectPayment != null)
+            {
+                return null;
+            }
+
+            var processedPayments = Cart.GetFirstForm().Payments.Where(x => x.Status.Equals(PaymentStatus.Processed.ToString())).ToList();
+            if (!processedPayments.Any())
+            {
+                // Return null in case there is no payment was processed.
+                return null;
+            }
+
+            var totalProcessedAmount = processedPayments.Sum(x => x.Amount);
+            if (totalProcessedAmount != Cart.GetTotal(_orderGroupCalculator).Amount)
+            {
+                throw new InvalidOperationException("Wrong amount");
+            }
+
+            var orderReference = _orderRepository.SaveAsPurchaseOrder(Cart);
+            var purchaseOrder = _orderRepository.Load<IPurchaseOrder>(orderReference.OrderGroupId);
+            _orderRepository.Delete(Cart.OrderLink);
+
+            if(purchaseOrder == null)
+            {
+                return null;
+            }
+
+            return View("~/Views/CheckoutPage/Purchase.cshtml", purchaseOrder);
+        }
+
+        //get payments
+        public IEnumerable<PaymentMethodViewModel> GetPaymentMethod()
+        {
+            var currentMarket = _currentMarket.GetCurrentMarket().MarketId;
+            var currentLanguage = GetCurrentLanguage().TwoLetterISOLanguageName;
+            //PaymentManager.GetPaymentMethodBySystemName
+            var methods = PaymentManager.GetPaymentMethodsByMarket(currentMarket.Value)
+                .PaymentMethod
+                .Where(x => x.IsActive && currentLanguage.Equals(x.LanguageId, StringComparison.OrdinalIgnoreCase))
+                .OrderBy(x => x.Ordering)
+                .Select(x => new PaymentMethodViewModel
+                {
+                    PaymentMethodId = x.PaymentMethodId,
+                    SystemKeyword = x.SystemKeyword,
+                    PaymentMethodName = x.Name,
+                    IsDefault = x.IsDefault
+                });
+
+            return methods;
+        }
+
+        public IPayment CreatePayment(decimal amount, IOrderGroup orderGroup, Guid PaymentMethodId, string SystemKeyword)
+        {
+            var payment = orderGroup.CreatePayment(_orderGroupFactory);
+            payment.PaymentType = PaymentType.Other;
+            payment.PaymentMethodId = PaymentMethodId;
+            payment.PaymentMethodName = SystemKeyword;
+            payment.Amount = amount;
+            payment.Status = PaymentStatus.Pending.ToString();
+            payment.TransactionType = TransactionType.Sale.ToString();
+            return payment;
+        }
+
         public virtual void UpdateShippingAddresses(ICart cart, CheckoutViewModel viewModel)
         {
             if (viewModel.UseBillingAddressForShipment)
@@ -224,7 +342,7 @@ namespace eShop.web.Controllers
 
         private AddressModel CreateBillingAddressModel()
         {
-            var preferredBillingAddress = CustomerContext.Current.CurrentContact.PreferredBillingAddress;
+            var preferredBillingAddress = CustomerContext.Current.CurrentContact?.PreferredBillingAddress;
             var addressId = preferredBillingAddress?.Name ?? Guid.NewGuid().ToString();
 
             return new AddressModel

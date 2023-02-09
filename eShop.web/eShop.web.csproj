@@ -684,6 +684,7 @@
     <Compile Include="ViewModels\NewProductViewModel.cs" />
     <Compile Include="ViewModels\Notification.cs" />
     <Compile Include="ViewModels\PageViewModel.cs" />
+    <Compile Include="ViewModels\PaymentMethodViewModel.cs" />
     <Compile Include="ViewModels\PreviewModel.cs" />
     <Compile Include="ViewModels\ProductContentViewModel.cs" />
     <Compile Include="ViewModels\ProductPageViewModel.cs" />
@@ -934,6 +935,7 @@
     <Content Include="Views\Cart\CartMini.cshtml" />
     <Content Include="Views\CheckoutPage\Index.cshtml" />
     <Content Include="Views\Cart\CartSideBar.cshtml" />
+    <Content Include="Views\CheckoutPage\Purchase.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
