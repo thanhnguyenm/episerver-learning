@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>eShop.web</RootNamespace>
     <AssemblyName>eShop.web</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <MvcBuildViews>true</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <FileUpgradeFlags>
@@ -536,6 +536,8 @@
     <Compile Include="Business\ScheduleTasks\PageOrderingScheduledTask.cs" />
     <Compile Include="Business\ScheduleTasks\StandardPageImporterJob.cs" />
     <Compile Include="Business\Search\InternalPageSearchProvider.cs" />
+    <Compile Include="Business\SelectionFactories\CategoriesFactory.cs" />
+    <Compile Include="Business\SelectionFactories\CountriesFactory.cs" />
     <Compile Include="Business\Services\CookieService.cs" />
     <Compile Include="Business\Services\FeedService.cs" />
     <Compile Include="Business\Services\ICacheManager.cs" />
@@ -552,10 +554,12 @@
     <Compile Include="Business\Validators\CategoryBannerTypeVaidator.cs" />
     <Compile Include="Business\Validators\StartPageValidator.cs" />
     <Compile Include="Commerce\Catalogs\CatalogContentTypeSample.cs" />
+    <Compile Include="Commerce\Catalogs\WineNode.cs" />
     <Compile Include="Commerce\Initialization\InventoryUpdateEvent.cs" />
     <Compile Include="Commerce\Products\ImageFile.cs" />
     <Compile Include="Commerce\Products\FashionProduct.cs" />
     <Compile Include="Commerce\Products\SampleProduct4.cs" />
+    <Compile Include="Commerce\Products\WineProduct.cs" />
     <Compile Include="Commerce\Seo\ExtendUniqueSeoGenerator.cs" />
     <Compile Include="Controllers\BaseBlockController.cs" />
     <Compile Include="Controllers\BaseFormBlockController.cs" />
@@ -628,6 +632,8 @@
     <Compile Include="Models\Media\GenericMedia.cs" />
     <Compile Include="Models\Media\ImageFile.cs" />
     <Compile Include="Models\Media\VideoFile.cs" />
+    <Compile Include="Models\Pages\BlogCategoryPage.cs" />
+    <Compile Include="Models\Pages\BlogCategoryRootPage.cs" />
     <Compile Include="Models\Pages\BlogPage.cs" />
     <Compile Include="Models\Pages\CheckoutPage.cs" />
     <Compile Include="Models\Pages\ContactPage.cs" />
