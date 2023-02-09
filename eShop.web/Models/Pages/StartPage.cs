@@ -84,5 +84,14 @@ namespace eShop.web.Models.Pages
         [AllowedTypes(new[] { typeof(SpecialOfferBlock) })]
         [MaxItemsAllowedAtribute(3)]
         public virtual ContentArea SpecialOfferContentArea { get; set; }
+
+        [Display(
+            Name = "Service Content Area",
+            GroupName = SystemTabNames.Content,
+            Order = 334)]
+        [CultureSpecific]
+        [AllowedTypes(new[] { typeof(ServiceBlock) })]
+        [MaxItemsAllowedAtribute(4)]
+        public virtual ContentArea ServicesContentArea { get; set; }
     }
 }

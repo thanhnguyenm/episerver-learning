@@ -219,7 +219,10 @@ namespace eShop.web.Controllers
                 return null;
             }
 
-            return View("~/Views/CheckoutPage/Purchase.cshtml", purchaseOrder);
+            var startpage = _contentLoader.Get<StartPage>(ContentReference.StartPage);
+            var model = new PurchaseOrderViewModel(startpage) { OrderNumber = purchaseOrder.OrderNumber };
+            
+            return View("Purchase", model);
         }
 
         //get payments

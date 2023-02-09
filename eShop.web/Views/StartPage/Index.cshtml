@@ -49,9 +49,14 @@
     </div>
 </section>
 <!-- Trend Section End -->
-
-
-@Html.Partial("_Services")
+@*@Html.Partial("_Services")*@
+<!-- Services Section Begin -->
+<section class="services spad">
+    <div class="container">
+        @Html.PropertyFor(x => x.CurrentPage.ServicesContentArea, new { CssClass = "row" })
+    </div>
+</section>
+<!-- Services Section End -->
 
 @Html.Partial("_Instagram")
 

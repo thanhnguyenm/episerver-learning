@@ -2,6 +2,7 @@
 using EPiServer.ServiceLocation;
 using EPiServer.Shell;
 using EPiServer.Web;
+using eShop.web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,9 @@ namespace eShop.web.Business.Components.Comments
                 return new[]
                 {
                     typeof(ContentFolder),
-                    typeof(Comment)
+                    typeof(Comment),
+                    typeof(UserMessage),
+
                 };
             }
         }
@@ -34,7 +37,7 @@ namespace eShop.web.Business.Components.Comments
         {
             get
             {
-                return new[] { typeof(Comment) };
+                return new[] { typeof(Comment), typeof(UserMessage) };
             }
         }
 

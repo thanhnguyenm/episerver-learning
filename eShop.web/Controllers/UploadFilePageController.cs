@@ -40,6 +40,7 @@ namespace eShop.web.Controllers
             int pageId = int.Parse(Request.Form["CurrentPage"].ToString());
             var currentPage = new ContentReference(pageId);
 
+            
             var contentAssetHelper = ServiceLocator.Current.GetInstance<ContentAssetHelper>();
             var contentAssetFolder = contentAssetHelper.GetOrCreateAssetFolder(currentPage);
             

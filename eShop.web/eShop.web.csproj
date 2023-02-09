@@ -487,6 +487,8 @@
     <Compile Include="Business\Components\Comments\CommentsPaneNavigationComponent.cs" />
     <Compile Include="Business\Components\CustomPage\Test1Widget.cs" />
     <Compile Include="Business\Components\CustomPage\CustomPanelWidget.cs" />
+    <Compile Include="Business\Components\Messages\UserMessagePaneNavigationComponent.cs" />
+    <Compile Include="Business\Components\Messages\UserMessagesPaneDescriptor.cs" />
     <Compile Include="Business\Components\UserManual\UserManualWidget.cs" />
     <Compile Include="Business\Components\VideoAsset\VideoAssetComponent.cs" />
     <Compile Include="Business\Components\VideoAsset\VideoAssetDescriptor.cs" />
@@ -578,6 +580,7 @@
     <Compile Include="Controllers\DebuggingInformationController.cs" />
     <Compile Include="Controllers\DefaultPageController.cs" />
     <Compile Include="Controllers\DemoFormPageController.cs" />
+    <Compile Include="Controllers\FacilityBlockController.cs" />
     <Compile Include="Controllers\HeaderController.cs" />
     <Compile Include="Controllers\LoginControlBlockController.cs" />
     <Compile Include="Controllers\BasePageController.cs" />
@@ -612,6 +615,7 @@
     <Compile Include="Models\Blocks\BigBannerLinkBlock.cs" />
     <Compile Include="Models\Blocks\CategoryBannerBlock.cs" />
     <Compile Include="Models\Blocks\ColourBlock.cs" />
+    <Compile Include="Models\Blocks\ServiceBlock.cs" />
     <Compile Include="Models\Blocks\HiddenBlock.cs" />
     <Compile Include="Models\Blocks\HotTrendBlock.cs" />
     <Compile Include="Models\Blocks\LoginControlBlock.cs" />
@@ -632,6 +636,7 @@
     <Compile Include="Models\Media\GenericMedia.cs" />
     <Compile Include="Models\Media\ImageFile.cs" />
     <Compile Include="Models\Media\VideoFile.cs" />
+    <Compile Include="Models\UserMessage.cs" />
     <Compile Include="Models\Pages\BlogCategoryPage.cs" />
     <Compile Include="Models\Pages\BlogCategoryRootPage.cs" />
     <Compile Include="Models\Pages\BlogPage.cs" />
@@ -694,9 +699,11 @@
     <Compile Include="ViewModels\PreviewModel.cs" />
     <Compile Include="ViewModels\ProductContentViewModel.cs" />
     <Compile Include="ViewModels\ProductPageViewModel.cs" />
+    <Compile Include="ViewModels\PurchaseOrderViewModel.cs" />
     <Compile Include="ViewModels\RssActionResult.cs" />
     <Compile Include="ViewModels\ShipmentViewModel.cs" />
     <Compile Include="ViewModels\SpecialOfferViewModel.cs" />
+    <Compile Include="ViewModels\UserMessage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commerce\Services\" />
@@ -711,6 +718,8 @@
   <ItemGroup>
     <Content Include="ClientResources\Images\icons\layoutIcons24x24.png" />
     <Content Include="ClientResources\Scripts\Components\CommentComponent.js" />
+    <Content Include="ClientResources\Scripts\Components\UserMessageViewModel.js" />
+    <Content Include="ClientResources\Scripts\Components\UserMessageComponent.js" />
     <Content Include="ClientResources\Scripts\Components\CommentViewModel.js" />
     <Content Include="ClientResources\Scripts\Components\Test1Widget.js" />
     <Content Include="ClientResources\Scripts\Components\CustomPanelWidget.js" />
@@ -860,6 +869,7 @@
     <Content Include="Static\js\jquery-3.4.1.slim.min.js" />
     <Content Include="Static\js\jquery-ui.min.js" />
     <Content Include="Static\js\jquery.countdown.min.js" />
+    <Content Include="Static\js\jquery.form.min.js" />
     <Content Include="Static\js\jquery.magnific-popup.min.js" />
     <Content Include="Static\js\jquery.nicescroll.min.js" />
     <Content Include="Static\js\jquery.slicknav.js" />
@@ -942,6 +952,7 @@
     <Content Include="Views\CheckoutPage\Index.cshtml" />
     <Content Include="Views\Cart\CartSideBar.cshtml" />
     <Content Include="Views\CheckoutPage\Purchase.cshtml" />
+    <Content Include="Views\FacilityBlock\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
