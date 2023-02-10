@@ -6,9 +6,9 @@ using System.Web;
 
 namespace eShop.web.ViewModels
 {
-    public class PurchaseOrderViewModel : PageViewModel<StartPage>
+    public class PurchaseOrderViewModel : PageViewModel<CheckoutPage>
     {
-        public PurchaseOrderViewModel(StartPage currentPage) : base(currentPage)
+        public PurchaseOrderViewModel(CheckoutPage currentPage) : base(currentPage)
         {
         }
 

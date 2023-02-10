@@ -685,6 +685,7 @@
     <Compile Include="ViewModels\CheckoutViewModel.cs" />
     <Compile Include="ViewModels\ConditionalLink.cs" />
     <Compile Include="ViewModels\ContentRenderingErrorModel.cs" />
+    <Compile Include="ViewModels\CustomWidgetPageViewModel.cs" />
     <Compile Include="ViewModels\IBlockViewModel.cs" />
     <Compile Include="ViewModels\IPageViewModel.cs" />
     <Compile Include="ViewModels\LayoutViewModel.cs" />
@@ -707,7 +708,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commerce\Services\" />
-    <Folder Include="lang\" />
     <Folder Include="Views\BaseBlock\" />
     <Folder Include="Views\BaseFormBlock\" />
     <Folder Include="Views\CustomAdminMainPage\" />
@@ -735,6 +735,9 @@
     <Content Include="ClientResources\Styles\Styles.css" />
     <Content Include="favicon.ico" />
     <Content Include="IndexingService\IndexingService.svc" />
+    <Content Include="lang\Display_en.xml" />
+    <Content Include="lang\Quicksilver_EN.xml" />
+    <Content Include="lang\Quicksilver_SV.xml" />
     <Content Include="Readme.txt" />
     <Content Include="Resources\LanguageFiles\Display.xml" />
     <Content Include="Resources\LanguageFiles\EditorHints.xml" />

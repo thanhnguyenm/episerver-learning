@@ -219,8 +219,7 @@ namespace eShop.web.Controllers
                 return null;
             }
 
-            var startpage = _contentLoader.Get<StartPage>(ContentReference.StartPage);
-            var model = new PurchaseOrderViewModel(startpage) { OrderNumber = purchaseOrder.OrderNumber };
+            var model = new PurchaseOrderViewModel(viewModel.CurrentPage) { OrderNumber = purchaseOrder.OrderNumber };
             
             return View("Purchase", model);
         }

@@ -10,7 +10,7 @@ namespace eShop.web.Business.Components.CustomPage
     [Component(PlugInAreas = PlugInArea.Assets,
            Categories = "cms",
            WidgetType = "nitecoui/components/CustomPanelWidget",
-           Title = "Custom Page Widget",
+           Title = "New Orders",
            SortOrder = 1200)]
     public class CustomPanelWidget
     {
