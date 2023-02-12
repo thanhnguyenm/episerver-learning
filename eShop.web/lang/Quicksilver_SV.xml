@@ -170,6 +170,7 @@
       <TaxTotal>Skatt</TaxTotal>
       <CartTotal>Totalt för varukorg</CartTotal>
       <PlaceOrder>Lägg order</PlaceOrder>
+	  <Success>Success</Success>
       <Address>
         <Labels>
           <FirstName>Förnamn:</FirstName>

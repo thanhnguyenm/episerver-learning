@@ -1,1 +1,9 @@
-﻿<div>Custom Partial View</div>
+﻿@model CustomWidgetPageViewModel
+<div>
+    <ul style="list-style:circle">
+    @foreach (var po in Model.NewOrders)
+    {
+        <li>@po.TrackingNumber (@po.Total.CurrenyFormat())</li>
+    }
+    </ul>
+</div>

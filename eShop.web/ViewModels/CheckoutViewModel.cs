@@ -1,4 +1,5 @@
 ﻿using EPiServer.Commerce.Order;
+using EPiServer.Core;
 using eShop.web.Models.Commerce;
 using eShop.web.Models.Pages;
 using System;
@@ -53,6 +54,7 @@ namespace eShop.web.ViewModels
         public IList<AddressModel> AvailableAddresses { get; set; }
 
         public CheckoutPage CurrentPage { get; set; }
+        public PageReference CurrentPageLink { get; set; }
         public StartPage StartPage { get; set; }
         public LayoutViewModel Layout { get; set; }
 

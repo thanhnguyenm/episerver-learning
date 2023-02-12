@@ -169,6 +169,7 @@
       <TaxTotal>Tax</TaxTotal>
       <CartTotal>Total for cart</CartTotal>
       <PlaceOrder>Place order</PlaceOrder>
+      <Success>Success</Success>
       <Address>
         <Labels>
           <FirstName>First name:</FirstName>
