@@ -17,6 +17,7 @@ using eShop.web.Models.Pages;
 using eShop.web.ViewModels;
 using Mediachase.Commerce;
 using Mediachase.Commerce.Catalog;
+using Mediachase.Commerce.Catalog.Objects;
 using Mediachase.Commerce.Customers;
 using Mediachase.Commerce.Markets;
 using Mediachase.Commerce.Orders;
@@ -158,12 +159,13 @@ namespace eShop.web.Controllers
             {
                 return Redirect(Url.ContentUrl(ContentReference.StartPage));
             }    
-
+            
             //address
             viewModel.BillingAddress.CountryOptions = CountryManager.GetCountries().Country.Select(x => new CountryViewModel { Code = x.Code, Name = x.Name });
             viewModel.BillingAddress.CountryRegion.RegionOptions = Enumerable.Empty<string>();
             var issues = _orderValidationService.ValidateOrder(Cart);
 
+            
             // validate email in billding address
             //..
 

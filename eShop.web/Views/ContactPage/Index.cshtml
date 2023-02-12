@@ -23,7 +23,7 @@
                         </ul>
                     </div>
                     <div class="contact__form">
-                        <h5>@Model.CurrentPage.FormTitle</h5>
+                        @*<h5>@Model.CurrentPage.FormTitle</h5>
                         @using (Html.BeginForm("Save", "ContactPage", FormMethod.Post, new { @id = "frm" }))
                         {
                             @Html.AntiForgeryToken()
@@ -33,7 +33,8 @@
                             <input type="text" name="Email" placeholder="@Model.CurrentPage.EmailFieldTile">
                             <textarea name="UserComment" placeholder="@Model.CurrentPage.MessageFieldTile"></textarea>
                             <button type="button" id="btnSave" class="site-btn">@Model.CurrentPage.ButtonFieldTile</button>
-                        }
+                        }*@
+                        @Html.PropertyFor(x => x.CurrentPage.ContactFormArea)
                     </div>
                 </div>
             </div>
@@ -50,7 +51,7 @@
 <!-- Contact Section End -->
 
 @section scripts{
-    <script src="~/Static/js/jquery.form.min.js"></script>
+    @*<script src="~/Static/js/jquery.form.min.js"></script>
     <script language="JavaScript">
         function convertFormToJSON(form) {
             const array = $(form).serializeArray(); // Encodes the set of form elements as an array of names and values.
@@ -84,5 +85,5 @@
         $("#btnSave").click(function () {
             $("#frm").submit();
         });
-    </script>
+    </script>*@
 }

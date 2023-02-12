@@ -74,6 +74,9 @@
     <Reference Include="EPiServer, Version=11.20.14.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.CMS.Core.11.20.14\lib\net461\EPiServer.dll</HintPath>
     </Reference>
+    <Reference Include="EPiServer.AddOns.Helpers, Version=0.4.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.AddOns.Helpers.0.4.0.0\lib\EPiServer.AddOns.Helpers.dll</HintPath>
+    </Reference>
     <Reference Include="EPiServer.ApplicationModules, Version=11.20.14.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.Framework.11.20.14\lib\net461\EPiServer.ApplicationModules.dll</HintPath>
     </Reference>
@@ -127,6 +130,15 @@
     </Reference>
     <Reference Include="EPiServer.Events, Version=11.20.14.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.Framework.11.20.14\lib\net461\EPiServer.Events.dll</HintPath>
+    </Reference>
+    <Reference Include="EPiServer.Forms, Version=4.30.8.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Forms.4.30.8\lib\EPiServer.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="EPiServer.Forms.Core, Version=4.30.8.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Forms.Core.4.30.8\lib\EPiServer.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EPiServer.Forms.UI, Version=4.30.8.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Forms.UI.4.30.8\lib\EPiServer.Forms.UI.dll</HintPath>
     </Reference>
     <Reference Include="EPiServer.Framework, Version=11.20.14.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.Framework.11.20.14\lib\net461\EPiServer.Framework.dll</HintPath>
@@ -506,6 +518,7 @@
     <Compile Include="Business\Dependencies\RedisCacheRegistation.cs" />
     <Compile Include="Business\Filters\BrowserCachingActionFilter.cs" />
     <Compile Include="Business\Filters\PageContextActionFilter.cs" />
+    <Compile Include="Business\Forms\ResetFormElements.cs" />
     <Compile Include="Business\HangfireJob\SampleHangfireJob.cs" />
     <Compile Include="Business\Hubs\MyHub1.cs" />
     <Compile Include="Business\Hubs\NotificationHub.cs" />
@@ -522,6 +535,7 @@
     <Compile Include="Business\Initialization\DisplayOptionsInitialization.cs" />
     <Compile Include="Business\Initialization\EventsInitialization.cs" />
     <Compile Include="Business\Initialization\FilterConfig.cs" />
+    <Compile Include="Business\Initialization\RemoveOldMetaFieldInitiakization.cs" />
     <Compile Include="Business\ScheduleTasks\ConsoleLogJob.cs" />
     <Compile Include="Business\Rendering\ContainerPageUIDescriptor.cs" />
     <Compile Include="Business\Rendering\ContentPageMetaDataPlugin.cs" />
@@ -537,6 +551,7 @@
     <Compile Include="Business\ScheduleTasks\NotificationScheduledTask.cs" />
     <Compile Include="Business\ScheduleTasks\PageOrderingScheduledTask.cs" />
     <Compile Include="Business\ScheduleTasks\StandardPageImporterJob.cs" />
+    <Compile Include="Business\ScheduleTasks\UpdateContentProperties.cs" />
     <Compile Include="Business\Search\InternalPageSearchProvider.cs" />
     <Compile Include="Business\SelectionFactories\CategoriesFactory.cs" />
     <Compile Include="Business\SelectionFactories\CountriesFactory.cs" />
@@ -556,11 +571,13 @@
     <Compile Include="Business\Validators\CategoryBannerTypeVaidator.cs" />
     <Compile Include="Business\Validators\StartPageValidator.cs" />
     <Compile Include="Commerce\Catalogs\CatalogContentTypeSample.cs" />
+    <Compile Include="Commerce\Catalogs\FashionNode.cs" />
     <Compile Include="Commerce\Catalogs\WineNode.cs" />
     <Compile Include="Commerce\Initialization\InventoryUpdateEvent.cs" />
+    <Compile Include="Commerce\Products\FashionItemVariant.cs" />
+    <Compile Include="Commerce\Products\FashionProductVariation.cs" />
     <Compile Include="Commerce\Products\ImageFile.cs" />
     <Compile Include="Commerce\Products\FashionProduct.cs" />
-    <Compile Include="Commerce\Products\SampleProduct4.cs" />
     <Compile Include="Commerce\Products\WineProduct.cs" />
     <Compile Include="Commerce\Seo\ExtendUniqueSeoGenerator.cs" />
     <Compile Include="Controllers\BaseBlockController.cs" />
@@ -630,7 +647,6 @@
     <Compile Include="Models\Commerce\CountryRegionViewModel.cs" />
     <Compile Include="Models\Commerce\CountryViewModel.cs" />
     <Compile Include="Models\Commerce\IProductModel.cs" />
-    <Compile Include="Models\Commerce\SampleCatalog.cs" />
     <Compile Include="Models\Commerce\ShippingMethodInfoModel.cs" />
     <Compile Include="Models\Commerce\ShippingMethodViewModel.cs" />
     <Compile Include="Models\Media\GenericMedia.cs" />
@@ -757,6 +773,11 @@
     <Content Include="ConnectionStrings.Default.config" />
     <Content Include="License.config" />
     <Content Include="modules\_protected\EPiServer.Commerce.Shell.ManagerIntegration\EPiServer.Commerce.Shell.ManagerIntegration.zip" />
+    <Content Include="modules\_protected\EPiServer.Forms.UI\module.config" />
+    <Content Include="modules\_protected\EPiServer.Forms.UI\EPiServer.Forms.UI.zip" />
+    <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\Web.config" />
+    <Content Include="modules\_protected\EPiServer.Forms\Forms.config" />
+    <Content Include="modules\_protected\EPiServer.Forms\EPiServer.Forms.zip" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />

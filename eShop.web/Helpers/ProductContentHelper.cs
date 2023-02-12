@@ -71,6 +71,7 @@ namespace eShop.web.Helpers
                 .Where(x => x.GroupName == "detail")
                 .Select(x => urlResolver.GetUrl(x.AssetLink)).ToList();
 
+            model.DetailImages.Insert(0, url);
 
             //check cart
             //var cart = new Cart(Guid.NewGuid().ToString(), Guid.NewGuid());
@@ -82,7 +83,7 @@ namespace eShop.web.Helpers
             //var request = new InventoryRequest(DateTime.UtcNow, requestItems, null);
             //var response = inventoryService.Request(request);
 
-            
+
             return model;
         }
 

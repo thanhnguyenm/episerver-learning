@@ -110,5 +110,13 @@ namespace eShop.web.Models.Pages
             Order = 10)]
         public virtual string ButtonFieldTile { get; set; }
 
+
+        [Display(
+            Name = "Contact Form",
+            Description = "The main body will be shown in the main content area of the page, using the XHTML-editor you can insert for example text, images and tables.",
+            GroupName = SystemTabNames.Content,
+            Order = 11)]
+        public virtual ContentArea ContactFormArea { get; set; }
+
     }
 }
